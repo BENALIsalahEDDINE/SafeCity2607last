@@ -1,0 +1,191 @@
+﻿@model SafeCity2607last.Models.ApplicationUser
+@inject SafeCity2607last.Data.ApplicationDbContext Context
+
+@{
+    UserProfile profile = Context.UserProfile.SingleOrDefault(x => x.ApplicationUserId.Equals(Model.Id));
+}
+<aside class="main-sidebar">
+    <!-- sidebar: style can be found in sidebar.less -->
+    <section class="sidebar">
+        <!-- Sidebar user panel -->
+        <div class="user-panel">
+            <div class="pull-left image">
+                <img src="@profile.ProfilePicture" class="img-circle" alt="User Image">
+            </div>
+            <div class="pull-left info">
+                <p>@profile.FirstName @profile.LastName</p>
+                <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
+            </div>
+        </div>
+
+        <!-- sidebar menu: : style can be found in sidebar.less -->
+        <ul class="sidebar-menu" data-widget="tree">
+            <li class="header">DASHBOARD</li>
+
+            <li class="@Html.IsSelected(controller: MainMenu.Statistiques.ControllerName)">
+                <a href="@MainMenu.Statistiques.Path">
+                    <i class="fa fa-pie-chart"></i> <span>@MainMenu.Statistiques.PageName</span>
+                </a>
+            </li>
+            <li class="header">ADMIN</li>
+
+            <li class="@Html.IsSelected(controller: MainMenu.TypeAdmin.ControllerName)">
+                <a href="@MainMenu.TypeAdmin.Path">
+                    <i class="fa fa-gear"></i> <span>@MainMenu.TypeAdmin.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.Admin.ControllerName)">
+                <a href="@MainMenu.Admin.Path">
+                    <i class="fa fa-building-o"></i> <span>@MainMenu.Admin.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.PropositionsAdmin.ControllerName)">
+                <a href="@MainMenu.PropositionsAdmin.Path">
+                    <i class="fa fa-gear"></i> <span>@MainMenu.PropositionsAdmin.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.DateDébutFinAdmin.ControllerName)">
+                <a href="@MainMenu.DateDébutFinAdmin.Path">
+                    <i class="fa fa-certificate"></i> <span>@MainMenu.DateDébutFinAdmin.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.InfosPublicationsAdmin.ControllerName)">
+                <a href="@MainMenu.InfosPublicationsAdmin.Path">
+                    <i class="fa fa-truck"></i> <span>@MainMenu.InfosPublicationsAdmin.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.Message.ControllerName)">
+                <a href="@MainMenu.Message.Path">
+                    <i class="fa fa-certificate"></i> <span>@MainMenu.Message.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.InfosMessage.ControllerName)">
+                <a href="@MainMenu.InfosMessage.Path">
+                    <i class="fa fa-certificate"></i> <span>@MainMenu.InfosMessage.PageName</span>
+                </a>
+            </li>
+
+            <li class="header">CONTROLEUR QUALITE</li>
+
+            <li class="@Html.IsSelected(controller: MainMenu.TypeControleurQualité.ControllerName)">
+                <a href="@MainMenu.TypeControleurQualité.Path">
+                    <i class="fa fa-gear"></i> <span>@MainMenu.TypeControleurQualité.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.ControleurdeQualité.ControllerName)">
+                <a href="@MainMenu.ControleurdeQualité.Path">
+                    <i class="fa fa-building-o"></i> <span>@MainMenu.ControleurdeQualité.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.PropositionsControleurQualité.ControllerName)">
+                <a href="@MainMenu.PropositionsControleurQualité.Path">
+                    <i class="fa fa-gear"></i> <span>@MainMenu.PropositionsControleurQualité.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.DateDébutFinControleurQ.ControllerName)">
+                <a href="@MainMenu.DateDébutFinControleurQ.Path">
+                    <i class="fa fa-certificate"></i> <span>@MainMenu.DateDébutFinControleurQ.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.InfoPublicationControleurQ.ControllerName)">
+                <a href="@MainMenu.InfoPublicationControleurQ.Path">
+                    <i class="fa fa-certificate"></i> <span>@MainMenu.InfoPublicationControleurQ.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.MessageControleurQualité.ControllerName)">
+                <a href="@MainMenu.MessageControleurQualité.Path">
+                    <i class="fa fa-certificate"></i> <span>@MainMenu.MessageControleurQualité.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.InfoMessageCQ.ControllerName)">
+                <a href="@MainMenu.InfoMessageCQ.Path">
+                    <i class="fa fa-certificate"></i> <span>@MainMenu.InfoMessageCQ.PageName</span>
+                </a>
+            </li>
+
+            <li class="header">CHERCHEURS ET PUBLIC</li>
+
+            <li class="@Html.IsSelected(controller: MainMenu.PublicationChercheurs.ControllerName)">
+                <a href="@MainMenu.PublicationChercheurs.Path">
+                    <i class="fa fa-tag"></i> <span>@MainMenu.PublicationChercheurs.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.CommentairesdePublic.ControllerName)">
+                <a href="@MainMenu.CommentairesdePublic.Path">
+                    <i class="fa fa-gear"></i> <span>@MainMenu.CommentairesdePublic.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.SujetPublication.ControllerName)">
+                <a href="@MainMenu.SujetPublication.Path">
+                    <i class="fa fa-gear"></i> <span>@MainMenu.SujetPublication.PageName</span>
+                </a>
+            </li>
+
+            <li class="header">PROPOSITIONS/PUBLICATIONS/MESSAGES</li>
+
+            <li class="@Html.IsSelected(controller: MainMenu.Grade.ControllerName)">
+                <a href="@MainMenu.Grade.Path">
+                    <i class="fa fa-dollar"></i> <span>@MainMenu.Grade.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.Mission.ControllerName)">
+                <a href="@MainMenu.Mission.Path">
+                    <i class="fa fa-building"></i> <span>@MainMenu.Mission.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.Lieu.ControllerName)">
+                <a href="@MainMenu.Lieu.Path">
+                    <i class="fa fa-cubes"></i> <span>@MainMenu.Lieu.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.PropositionPublic.ControllerName)">
+                <a href="@MainMenu.PropositionPublic.Path">
+                    <i class="fa fa-money"></i> <span>@MainMenu.PropositionPublic.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.PublicationPublic.ControllerName)">
+                <a href="@MainMenu.PublicationPublic.Path">
+                    <i class="fa fa-gear"></i> <span>@MainMenu.PublicationPublic.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.MessagePublic.ControllerName)">
+                <a href="@MainMenu.MessagePublic.Path">
+                    <i class="fa fa-gear"></i> <span>@MainMenu.MessagePublic.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.TypeMessage.ControllerName)">
+                <a href="@MainMenu.TypeMessage.Path">
+                    <i class="fa fa-gear"></i> <span>@MainMenu.TypeMessage.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.TypeProposition.ControllerName)">
+                <a href="@MainMenu.TypeProposition.Path">
+                    <i class="fa fa-gear"></i> <span>@MainMenu.TypeProposition.PageName</span>
+                </a>
+            </li>
+
+            <li class="header">USER & ROLE</li>
+            <li class="@Html.IsSelected(controller: MainMenu.User.ControllerName, action: MainMenu.User.ActionName)">
+                <a href="@MainMenu.User.Path">
+                    <i class="fa fa-users"></i> <span>@MainMenu.User.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.ChangePassword.ControllerName, action: MainMenu.ChangePassword.ActionName)">
+                <a href="@MainMenu.ChangePassword.Path">
+                    <i class="fa fa-key"></i> <span>@MainMenu.ChangePassword.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.Role.ControllerName, action: MainMenu.Role.ActionName)">
+                <a href="@MainMenu.Role.Path">
+                    <i class="fa fa-gear"></i> <span>@MainMenu.Role.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.ChangeRole.ControllerName, action: MainMenu.ChangeRole.ActionName)">
+                <a href="@MainMenu.ChangeRole.Path">
+                    <i class="fa fa-gear"></i> <span>@MainMenu.ChangeRole.PageName</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+    <!-- /.sidebar -->
+</aside>
