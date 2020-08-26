@@ -47,70 +47,29 @@ namespace SafeCity2607last.Services
             try
             {
                
-                await _context.TypeProposition.AddAsync(new TypeProposition { BillTypeName = "Default" });
-                await _context.SaveChangesAsync();
-
-                await _context.Mission.AddAsync(new Mission { BranchName = "Default" });
-                await _context.SaveChangesAsync();
-
-                await _context.Lieu.AddAsync(new Lieu { WarehouseName = "Default" });
-                await _context.SaveChangesAsync();
+             
 
                 await _context.PropositionPublic.AddAsync(new PropositionPublic { CashBankName = "Default" });
                 await _context.SaveChangesAsync();
 
-                await _context.Currency.AddAsync(new Grade { CurrencyName = "Default", CurrencyCode = "USD" });
-                await _context.SaveChangesAsync();
+               
 
-                await _context.TypeMessage.AddAsync(new TypeMessage { InvoiceTypeName = "Default" });
-                await _context.SaveChangesAsync();
 
                 await _context.PublicationPublic.AddAsync(new PublicationPublic { PaymentTypeName = "Default" });
                 await _context.SaveChangesAsync();
 
-                await _context.PropositionsControleurQualité.AddAsync(new PropositionsControleurQualité { PurchaseTypeName = "Default" });
-                await _context.SaveChangesAsync();
-
-                await _context.PropositionsAdmin.AddAsync(new PropositionsAdmin { SalesTypeName = "Default" });
-                await _context.SaveChangesAsync();
+           
 
                 await _context.MessagePublic.AddAsync(new MessagePublic { ShipmentTypeName = "Default" });
                 await _context.SaveChangesAsync();
 
-                await _context.SujetPublication.AddAsync(new SujetPublication { UnitOfMeasureName = "PCS" });
-                await _context.SaveChangesAsync();
+            
 
                 await _context.CommentairesdePublic.AddAsync(new CommentairesdePublic { ProductTypeName = "Default" });
                 await _context.SaveChangesAsync();
 
-                List<PublicationChercheurs> products = new List<PublicationChercheurs>() {
-                    new PublicationChercheurs{ProductName = "Chai"},
-                    new PublicationChercheurs{ProductName = "Chang"},
-                    new PublicationChercheurs{ProductName = "Aniseed Syrup"},
-                    new PublicationChercheurs{ProductName = "Chef Anton's Cajun Seasoning"},
-                    new PublicationChercheurs{ProductName = "Chef Anton's Gumbo Mix"},
-                    new PublicationChercheurs{ProductName = "Grandma's Boysenberry Spread"},
-                    new PublicationChercheurs{ProductName = "Uncle Bob's Organic Dried Pears"},
-                    new PublicationChercheurs{ProductName = "Northwoods Cranberry Sauce"},
-                    new PublicationChercheurs{ProductName = "Mishi Kobe Niku"},
-                    new PublicationChercheurs{ProductName = "Ikura"},
-                    new PublicationChercheurs{ProductName = "Queso Cabrales"},
-                    new PublicationChercheurs{ProductName = "Queso Manchego La Pastora"},
-                    new PublicationChercheurs{ProductName = "Konbu"},
-                    new PublicationChercheurs{ProductName = "Tofu"},
-                    new PublicationChercheurs{ProductName = "Genen Shouyu"},
-                    new PublicationChercheurs{ProductName = "Pavlova"},
-                    new PublicationChercheurs{ProductName = "Alice Mutton"},
-                    new PublicationChercheurs{ProductName = "Carnarvon Tigers"},
-                    new PublicationChercheurs{ProductName = "Teatime Chocolate Biscuits"},
-                    new PublicationChercheurs{ProductName = "Sir Rodney's Marmalade"}
-
-                };
-                await _context.PublicationChercheurs.AddRangeAsync(products);
-                await _context.SaveChangesAsync();
-
-                await _context.TypeAdmin.AddAsync(new TypeAdmin { CustomerTypeName = "Default" });
-                await _context.SaveChangesAsync();
+              
+         
 
                 List<Admin> customers = new List<Admin>() {
                     new Admin{CustomerName = "Hanari Carnes", Address = "Rua do Paço, 67"},
@@ -137,8 +96,7 @@ namespace SafeCity2607last.Services
                 await _context.Admin.AddRangeAsync(customers);
                 await _context.SaveChangesAsync();
 
-                await _context.TypeControleurQualité.AddAsync(new TypeControleurQualité { VendorTypeName = "Default" });
-                await _context.SaveChangesAsync();
+              
 
                 List<ControleurdeQualité> vendors = new List<ControleurdeQualité>() {
                     new ControleurdeQualité{VendorName = "Exotic Liquids", Address = "49 Gilbert St."},
