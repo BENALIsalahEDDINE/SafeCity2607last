@@ -46,7 +46,7 @@ namespace SafeCity2607last.Pages
         public static class PublicationPublic
         {
             public const string PageName = "Publication";
-            public const string RoleName = "Publication Public";
+            public const string RoleName = "Publication";
             public const string Path = "/PublicationPublic/Index";
             public const string ControllerName = "PublicationPublic";
             public const string ActionName = "Index";

@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewData["Title"] = "Publication Public";
+    ViewData["Title"] = "Publication";
 }
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -84,9 +84,21 @@
                     allowPaging: true,
                     pageSettings: { pageSize: 10, printMode: ej.Grid.PrintMode.CurrentPage },
                     columns: [
-                        { field: "PaymentTypeId", headerText: 'Publication Id', isPrimaryKey: true, isIdentity: true, visible: false },
-                        { field: "PaymentTypeName", headerText: 'Nom Publication', validationRules: { required: true } },
+                        { field: "PublicationId", headerText: 'Publication Id', isPrimaryKey: true, isIdentity: true, visible: false },
+                        { field: "NomPublication", headerText: 'Nom Publication', validationRules: { required: true } },
                         { field: "Description", headerText: 'Description', },
+                        { field: "Description", headerText: 'Description', },
+                        { field: "Description", headerText: 'Description', },
+                        { field: "Description", headerText: 'Description', },
+                        { field: "Description", headerText: 'Description', },
+                        { field: "Description", headerText: 'Description', },
+                        { field: "Description", headerText: 'Description', },
+                        { field: "Description", headerText: 'Description', },
+                        { field: "Description", headerText: 'Description', },
+                        { field: "Description", headerText: 'Description', },
+                        { field: "Description", headerText: 'Description', },
+                        { field: "Description", headerText: 'Description', },
+
                     ],
                     actionComplete: "complete",
                 });
