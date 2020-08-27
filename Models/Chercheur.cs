@@ -9,20 +9,23 @@ namespace SafeCity2607last.Models
     public class Chercheur
     {
         [Key]
-        public int VendorId { get; set; }
+        public int id_pub { get; set; }
         [Required]
-        public string VendorName { get; set; }
-        [Display(Name = "Vendor Type")]
-        public int VendorTypeId { get; set; }
-        [Display(Name = "Street Address")]
-        public string Address { get; set; }
-        public string City { get; set; }
-        public string State { get; set; }
-        [Display(Name = "Zip Code")]
-        public string ZipCode { get; set; }
-        public string Phone { get; set; }
-        public string Email { get; set; }
-        [Display(Name = "Contact Person")]
-        public string ContactPerson { get; set; }
+        public string id_source { get; set; }
+        public int id_cq { get; internal set; }
+        public int id_comment { get; set; }
+        public int publication { get; set; }
+        public int pho1 { get; set; }
+        public int pho2 { get; set; }
+        public int pho3 { get; set; }
+        public int ville { get; set; }
+        public int etat { get; set; }
+        public int explication { get; set; }
+        public int date { get; set; }
+        public int heure { get; set; }
+        public int secteur { get; set; }
+        public int rue { get; set; }
+        public int lati { get; set; }
+        public int longi { get; set; }
     }
 }

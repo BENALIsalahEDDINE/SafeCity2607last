@@ -54,7 +54,7 @@ namespace SafeCity2607last.Controllers.Api
         public IActionResult Remove([FromBody] CrudViewModel<Chercheur> payload)
         {
             Chercheur vendor = _context.Chercheur
-                .Where(x => x.VendorId == (int)payload.key)
+                .Where(x => x.id_pub == (int)payload.key)
                 .FirstOrDefault();
             _context.Chercheur.Remove(vendor);
             _context.SaveChanges();
