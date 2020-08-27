@@ -3,8 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Microsoft.EntityFrameworkCore.Storage;
-using Microsoft.EntityFrameworkCore.Storage.Internal;
 using SafeCity2607last.Data;
 using System;
 
@@ -252,6 +250,327 @@ namespace SafeCity2607last.Migrations
                     b.ToTable("ControleurdeQualité");
                 });
 
+            modelBuilder.Entity("SafeCity2607last.Models.DateDébutFinAdmin", b =>
+                {
+                    b.Property<int>("SalesOrderId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<double>("Amount");
+
+                    b.Property<int>("BranchId");
+
+                    b.Property<int>("CurrencyId");
+
+                    b.Property<int>("CustomerId");
+
+                    b.Property<string>("CustomerRefNumber");
+
+                    b.Property<DateTimeOffset>("DeliveryDate");
+
+                    b.Property<double>("Discount");
+
+                    b.Property<double>("Freight");
+
+                    b.Property<DateTimeOffset>("OrderDate");
+
+                    b.Property<string>("Remarks");
+
+                    b.Property<string>("SalesOrderName");
+
+                    b.Property<int>("SalesTypeId");
+
+                    b.Property<double>("SubTotal");
+
+                    b.Property<double>("Tax");
+
+                    b.Property<double>("Total");
+
+                    b.HasKey("SalesOrderId");
+
+                    b.ToTable("DateDébutFinAdmin");
+                });
+
+            modelBuilder.Entity("SafeCity2607last.Models.DateDébutFinAdminLine", b =>
+                {
+                    b.Property<int>("SalesOrderLineId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<double>("Amount");
+
+                    b.Property<string>("Description");
+
+                    b.Property<double>("DiscountAmount");
+
+                    b.Property<double>("DiscountPercentage");
+
+                    b.Property<double>("Price");
+
+                    b.Property<int>("ProductId");
+
+                    b.Property<double>("Quantity");
+
+                    b.Property<int>("SalesOrderId");
+
+                    b.Property<double>("SubTotal");
+
+                    b.Property<double>("TaxAmount");
+
+                    b.Property<double>("TaxPercentage");
+
+                    b.Property<double>("Total");
+
+                    b.HasKey("SalesOrderLineId");
+
+                    b.HasIndex("SalesOrderId");
+
+                    b.ToTable("DateDébutFinAdminLine");
+                });
+
+            modelBuilder.Entity("SafeCity2607last.Models.DateDébutFinControleurQ", b =>
+                {
+                    b.Property<int>("PurchaseOrderId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<double>("Amount");
+
+                    b.Property<int>("BranchId");
+
+                    b.Property<int>("CurrencyId");
+
+                    b.Property<DateTimeOffset>("DeliveryDate");
+
+                    b.Property<double>("Discount");
+
+                    b.Property<double>("Freight");
+
+                    b.Property<DateTimeOffset>("OrderDate");
+
+                    b.Property<string>("PurchaseOrderName");
+
+                    b.Property<int>("PurchaseTypeId");
+
+                    b.Property<string>("Remarks");
+
+                    b.Property<double>("SubTotal");
+
+                    b.Property<double>("Tax");
+
+                    b.Property<double>("Total");
+
+                    b.Property<int>("VendorId");
+
+                    b.HasKey("PurchaseOrderId");
+
+                    b.ToTable("DateDébutFinControleurQ");
+                });
+
+            modelBuilder.Entity("SafeCity2607last.Models.DateDébutFinControleurQLine", b =>
+                {
+                    b.Property<int>("PurchaseOrderLineId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<double>("Amount");
+
+                    b.Property<string>("Description");
+
+                    b.Property<double>("DiscountAmount");
+
+                    b.Property<double>("DiscountPercentage");
+
+                    b.Property<double>("Price");
+
+                    b.Property<int>("ProductId");
+
+                    b.Property<int>("PurchaseOrderId");
+
+                    b.Property<double>("Quantity");
+
+                    b.Property<double>("SubTotal");
+
+                    b.Property<double>("TaxAmount");
+
+                    b.Property<double>("TaxPercentage");
+
+                    b.Property<double>("Total");
+
+                    b.HasKey("PurchaseOrderLineId");
+
+                    b.HasIndex("PurchaseOrderId");
+
+                    b.ToTable("DateDébutFinControleurQLine");
+                });
+
+            modelBuilder.Entity("SafeCity2607last.Models.Grade", b =>
+                {
+                    b.Property<int>("CurrencyId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("CurrencyCode")
+                        .IsRequired();
+
+                    b.Property<string>("CurrencyName")
+                        .IsRequired();
+
+                    b.Property<string>("Description");
+
+                    b.HasKey("CurrencyId");
+
+                    b.ToTable("Grade");
+                });
+
+            modelBuilder.Entity("SafeCity2607last.Models.InfoMessageCQ", b =>
+                {
+                    b.Property<int>("PaymentvoucherId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("BillId");
+
+                    b.Property<int>("CashBankId");
+
+                    b.Property<bool>("IsFullPayment");
+
+                    b.Property<double>("PaymentAmount");
+
+                    b.Property<DateTimeOffset>("PaymentDate");
+
+                    b.Property<int>("PaymentTypeId");
+
+                    b.Property<string>("PaymentVoucherName");
+
+                    b.HasKey("PaymentvoucherId");
+
+                    b.ToTable("InfoMessageCQ");
+                });
+
+            modelBuilder.Entity("SafeCity2607last.Models.InfoPublicationControleurQ", b =>
+                {
+                    b.Property<int>("GoodsReceivedNoteId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTimeOffset>("GRNDate");
+
+                    b.Property<string>("GoodsReceivedNoteName");
+
+                    b.Property<bool>("IsFullReceive");
+
+                    b.Property<int>("PurchaseOrderId");
+
+                    b.Property<string>("VendorDONumber");
+
+                    b.Property<string>("VendorInvoiceNumber");
+
+                    b.Property<int>("WarehouseId");
+
+                    b.HasKey("GoodsReceivedNoteId");
+
+                    b.ToTable("InfoPublicationControleurQ");
+                });
+
+            modelBuilder.Entity("SafeCity2607last.Models.InfosMessage", b =>
+                {
+                    b.Property<int>("PaymentReceiveId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("InvoiceId");
+
+                    b.Property<bool>("IsFullPayment");
+
+                    b.Property<double>("PaymentAmount");
+
+                    b.Property<DateTimeOffset>("PaymentDate");
+
+                    b.Property<string>("PaymentReceiveName");
+
+                    b.Property<int>("PaymentTypeId");
+
+                    b.HasKey("PaymentReceiveId");
+
+                    b.ToTable("PaymentReceive");
+                });
+
+            modelBuilder.Entity("SafeCity2607last.Models.InfosPublicationsAdmin", b =>
+                {
+                    b.Property<int>("ShipmentId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<bool>("IsFullShipment");
+
+                    b.Property<int>("SalesOrderId");
+
+                    b.Property<DateTimeOffset>("ShipmentDate");
+
+                    b.Property<string>("ShipmentName");
+
+                    b.Property<int>("ShipmentTypeId");
+
+                    b.Property<int>("WarehouseId");
+
+                    b.HasKey("ShipmentId");
+
+                    b.ToTable("InfosPublicationsAdmin");
+                });
+
+            modelBuilder.Entity("SafeCity2607last.Models.Lieu", b =>
+                {
+                    b.Property<int>("WarehouseId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<int>("BranchId");
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("WarehouseName")
+                        .IsRequired();
+
+                    b.HasKey("WarehouseId");
+
+                    b.ToTable("Lieu");
+                });
+
+            modelBuilder.Entity("SafeCity2607last.Models.Message", b =>
+                {
+                    b.Property<int>("InvoiceId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTimeOffset>("InvoiceDate");
+
+                    b.Property<DateTimeOffset>("InvoiceDueDate");
+
+                    b.Property<string>("InvoiceName");
+
+                    b.Property<int>("InvoiceTypeId");
+
+                    b.Property<int>("ShipmentId");
+
+                    b.HasKey("InvoiceId");
+
+                    b.ToTable("Message");
+                });
+
+            modelBuilder.Entity("SafeCity2607last.Models.MessageControleurQualité", b =>
+                {
+                    b.Property<int>("BillId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTimeOffset>("BillDate");
+
+                    b.Property<DateTimeOffset>("BillDueDate");
+
+                    b.Property<string>("BillName");
+
+                    b.Property<int>("BillTypeId");
+
+                    b.Property<int>("GoodsReceivedNoteId");
+
+                    b.Property<string>("VendorDONumber");
+
+                    b.Property<string>("VendorInvoiceNumber");
+
+                    b.HasKey("BillId");
+
+                    b.ToTable("Bill");
+                });
+
             modelBuilder.Entity("SafeCity2607last.Models.MessagePublic", b =>
                 {
                     b.Property<int>("ShipmentTypeId")
@@ -265,6 +584,37 @@ namespace SafeCity2607last.Migrations
                     b.HasKey("ShipmentTypeId");
 
                     b.ToTable("MessagePublic");
+                });
+
+            modelBuilder.Entity("SafeCity2607last.Models.Mission", b =>
+                {
+                    b.Property<int>("BranchId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Address");
+
+                    b.Property<string>("BranchName")
+                        .IsRequired();
+
+                    b.Property<string>("City");
+
+                    b.Property<string>("ContactPerson");
+
+                    b.Property<int>("CurrencyId");
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("Email");
+
+                    b.Property<string>("Phone");
+
+                    b.Property<string>("State");
+
+                    b.Property<string>("ZipCode");
+
+                    b.HasKey("BranchId");
+
+                    b.ToTable("Mission");
                 });
 
             modelBuilder.Entity("SafeCity2607last.Models.NumberSequence", b =>
@@ -302,6 +652,67 @@ namespace SafeCity2607last.Migrations
                     b.ToTable("PropositionPublic");
                 });
 
+            modelBuilder.Entity("SafeCity2607last.Models.PropositionsAdmin", b =>
+                {
+                    b.Property<int>("SalesTypeId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("SalesTypeName")
+                        .IsRequired();
+
+                    b.HasKey("SalesTypeId");
+
+                    b.ToTable("PropositionsAdmin");
+                });
+
+            modelBuilder.Entity("SafeCity2607last.Models.PropositionsControleurQualité", b =>
+                {
+                    b.Property<int>("PurchaseTypeId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("PurchaseTypeName")
+                        .IsRequired();
+
+                    b.HasKey("PurchaseTypeId");
+
+                    b.ToTable("PropositionsControleurQualité");
+                });
+
+            modelBuilder.Entity("SafeCity2607last.Models.PublicationChercheurs", b =>
+                {
+                    b.Property<int>("ProductId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Barcode");
+
+                    b.Property<int>("BranchId");
+
+                    b.Property<int>("CurrencyId");
+
+                    b.Property<double>("DefaultBuyingPrice");
+
+                    b.Property<double>("DefaultSellingPrice");
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("ProductCode");
+
+                    b.Property<string>("ProductImageUrl");
+
+                    b.Property<string>("ProductName")
+                        .IsRequired();
+
+                    b.Property<int>("UnitOfMeasureId");
+
+                    b.HasKey("ProductId");
+
+                    b.ToTable("PublicationChercheurs");
+                });
+
             modelBuilder.Entity("SafeCity2607last.Models.PublicationPublic", b =>
                 {
                     b.Property<int>("PaymentTypeId")
@@ -317,22 +728,89 @@ namespace SafeCity2607last.Migrations
                     b.ToTable("PublicationPublic");
                 });
 
+            modelBuilder.Entity("SafeCity2607last.Models.SujetPublication", b =>
+                {
+                    b.Property<int>("UnitOfMeasureId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("UnitOfMeasureName")
+                        .IsRequired();
+
+                    b.HasKey("UnitOfMeasureId");
+
+                    b.ToTable("SujetPublication");
+                });
+
+            modelBuilder.Entity("SafeCity2607last.Models.TypeAdmin", b =>
+                {
+                    b.Property<int>("CustomerTypeId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("CustomerTypeName")
+                        .IsRequired();
+
+                    b.Property<string>("Description");
+
+                    b.HasKey("CustomerTypeId");
+
+                    b.ToTable("TypeAdmin");
+                });
+
+            modelBuilder.Entity("SafeCity2607last.Models.TypeControleurQualité", b =>
+                {
+                    b.Property<int>("VendorTypeId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("VendorTypeName")
+                        .IsRequired();
+
+                    b.HasKey("VendorTypeId");
+
+                    b.ToTable("TypeControleurQualité");
+                });
+
+            modelBuilder.Entity("SafeCity2607last.Models.TypeMessage", b =>
+                {
+                    b.Property<int>("InvoiceTypeId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("InvoiceTypeName")
+                        .IsRequired();
+
+                    b.HasKey("InvoiceTypeId");
+
+                    b.ToTable("TypeMessage");
+                });
+
+            modelBuilder.Entity("SafeCity2607last.Models.TypeProposition", b =>
+                {
+                    b.Property<int>("BillTypeId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("BillTypeName")
+                        .IsRequired();
+
+                    b.Property<string>("Description");
+
+                    b.HasKey("BillTypeId");
+
+                    b.ToTable("TypeProposition");
+                });
+
             modelBuilder.Entity("SafeCity2607last.Models.UserProfile", b =>
                 {
                     b.Property<int>("UserProfileId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("AdressePostale");
-
                     b.Property<string>("ApplicationUserId");
 
-                    b.Property<string>("CIN");
-
                     b.Property<string>("ConfirmPassword");
-
-                    b.Property<DateTime>("Datedebut");
-
-                    b.Property<DateTime>("Datefin");
 
                     b.Property<string>("Email");
 
@@ -344,13 +822,7 @@ namespace SafeCity2607last.Migrations
 
                     b.Property<string>("Password");
 
-                    b.Property<string>("Phone1");
-
-                    b.Property<string>("Phone2");
-
                     b.Property<string>("ProfilePicture");
-
-                    b.Property<string>("Ville");
 
                     b.HasKey("UserProfileId");
 
@@ -399,6 +871,22 @@ namespace SafeCity2607last.Migrations
                     b.HasOne("SafeCity2607last.Models.ApplicationUser")
                         .WithMany()
                         .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("SafeCity2607last.Models.DateDébutFinAdminLine", b =>
+                {
+                    b.HasOne("SafeCity2607last.Models.DateDébutFinAdmin", "DateDébutFinAdmin")
+                        .WithMany("DateDébutFinAdminLines")
+                        .HasForeignKey("SalesOrderId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
+            modelBuilder.Entity("SafeCity2607last.Models.DateDébutFinControleurQLine", b =>
+                {
+                    b.HasOne("SafeCity2607last.Models.DateDébutFinControleurQ", "DateDébutFinControleurQ")
+                        .WithMany("DateDébutFinControleurQLines")
+                        .HasForeignKey("PurchaseOrderId")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
 #pragma warning restore 612, 618

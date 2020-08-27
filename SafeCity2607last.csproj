@@ -21,6 +21,13 @@
     <None Remove="wwwroot\Template\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="Migrations\20200827112826_salah.cs" />
+    <Compile Remove="Migrations\20200827112826_salah.Designer.cs" />
+    <Compile Remove="Migrations\20200827113119_salah.cs" />
+    <Compile Remove="Migrations\20200827113119_salah.Designer.cs" />
+  </ItemGroup>
+
 
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.13.1" />

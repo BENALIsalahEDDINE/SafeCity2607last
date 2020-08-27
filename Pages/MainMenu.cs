@@ -107,6 +107,14 @@ namespace SafeCity2607last.Pages
             public const string ControllerName = "UserRole";
             public const string ActionName = "ChangeRole";
         }
+        public static class Chercheur
+        {
+            public const string PageName = "Chercheur";
+            public const string RoleName = "Chercheur";
+            public const string Path = "/UserRole/Index";
+            public const string ControllerName = "Chercheur";
+            public const string ActionName = "Chercheur";
+        }
 
         public static class Statistiques
         {

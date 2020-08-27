@@ -61,7 +61,14 @@
                     <i class="fa fa-users"></i> <span>@MainMenu.ControleurdeQualité.PageName</span>
                 </a>
             </li>
+            <li class="header">CHERCHEUR</li>
 
+
+            <li class="@Html.IsSelected(controller: MainMenu.Admin.ControllerName)">
+                <a href="@MainMenu.Admin.Path">
+                    <i class="fa fa-users"></i> <span>@MainMenu.Admin.PageName</span>
+                </a>
+            </li>
 
 
 
