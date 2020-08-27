@@ -40,6 +40,7 @@
 <script id="templateForm" type="text/template">
    
     <table cellspacing="10">
+
         <tr>
             <td>
                 Email
@@ -48,6 +49,8 @@
                 <input id="Email" name="Email" value="{{:Email}}" />
             </td>
         </tr>
+
+
         <tr>
             <td>
                 First Name
@@ -62,6 +65,62 @@
                 <input id="LastName" name="LastName" value="{{:LastName}}" />
             </td>
         </tr>
+        @*-----------------------------------------------------*@
+
+
+
+
+
+
+
+        @*----------------------------------------------------*@
+
+
+
+
+        <tr>
+            <td>
+                Adress
+            </td>
+            <td>
+                <input id="AdressePostale" name="AdressePostale" value="{{:AdressePostale}}" />
+            </td>
+
+            <td>
+                City
+            </td>
+            <td>
+                <input id="Ville" name="Ville" value="{{:Ville}}" />
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                CIN
+            </td>
+            <td colspan="3">
+                <input id="CIN" name="CIN" value="{{:CIN}}" />
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>
+                Phone Number1
+            </td>
+            <td>
+                <input id="Phone1" name="Phone1" value="{{:Phone1}}" />
+            </td>
+
+            <td>
+                Phone Number2
+            </td>
+            <td>
+                <input id="Phone2" name="Phone2" value="{{:Phone2}}" />
+            </td>
+        </tr>
+
+
         <tr>
             <td>
                 Password
@@ -76,26 +135,32 @@
                 <input id="ConfirmPassword" name="ConfirmPassword" value="{{:ConfirmPassword}}" />
             </td>
         </tr>
-        <tr>
-            <td>
-                Adress
-            </td>
-            <td>
-                <input id="Password" name="Password" value="{{:Password}}" />
-            </td>
-            <td>
-                Gender
-            </td>
-            <td>
-                <input id="ConfirmPassword" name="ConfirmPassword" value="{{:ConfirmPassword}}" />
-            </td>
-        </tr>
+
+
+        @if (User.IsInRole("Change Role"))
+        {
+            <tr>
+                <td>
+                    Start date
+                </td>
+                <td colspan="3">
+                    <input id="Datedebut" name="Datedebut" type="date" min="2020-01-01" max="2030-12-31" value="{{:Datedebut}}" />
+                </td>
+            </tr>
+        }
+
+
+
     </table>
+
+
 </script>
 <script id="templateEditForm" type="text/template">
     <input hidden id="UserProfileId" name="UserProfileId" value="{{:UserProfileId}}" />
     <input hidden id="ApplicationUserId" name="ApplicationUserId" value="{{:ApplicationUserId}}" />
     <table cellspacing="10">
+
+
         <tr>
             <td>
                 Email
@@ -104,6 +169,9 @@
                 <input id="Email" name="Email" value="{{:Email}}" />
             </td>
         </tr>
+
+
+
         <tr>
             <td>
                 First Name
@@ -118,6 +186,65 @@
                 <input id="LastName" name="LastName" value="{{:LastName}}" />
             </td>
         </tr>
+
+
+        <tr>
+            <td>
+                Adress
+            </td>
+            <td>
+                <input id="AdressePostale" name="AdressePostale" value="{{:AdressePostale}}" />
+            </td>
+            <td>
+                City
+            </td>
+            <td>
+                <input id="Ville" name="Ville" value="{{:Ville}}" />
+            </td>
+        </tr>
+
+
+
+        <tr>
+            <td>
+                CIN
+            </td>
+            <td colspan="3">
+                <input id="CIN" name="CIN" value="{{:CIN}}" />
+            </td>
+        </tr>
+
+
+        <tr>
+            <td>
+                Phone Number1
+            </td>
+            <td>
+                <input id="Phone1" name="Phone1" value="{{:Phone1}}" />
+            </td>
+            <td>
+                Phone Number2
+            </td>
+            <td>
+                <input id="Phone2" name="Phone2" value="{{:Phone2}}" />
+            </td>
+        </tr>
+
+
+        @if (User.IsInRole("Change Role"))
+        {
+            <tr>
+                <td>
+                    Start date
+                </td>
+                <td colspan="3">
+                    <input id="Datedebut" name="Datedebut" type="date" min="2020-01-01" max="2030-12-31" value="{{:Datedebut}}" />
+                </td>
+            </tr>
+        }
+
+
+
     </table>
 </script>
 
@@ -174,6 +301,13 @@
                         { field: "Email", headerText: 'Email', validationRules: { required: true } },
                         { field: "FirstName", headerText: 'First Name', validationRules: { required: true } },
                         { field: "LastName", headerText: 'Last Name', validationRules: { required: false } },
+                        //------------------------------------------
+                        { field: "AdressePostale", headerText: 'Adress', validationRules: { required: true } },
+                        { field: "Ville", headerText: 'City', validationRules: { required: true } },
+                        { field: "CIN", headerText: 'CIN', validationRules: { required: true } },
+                        { field: "Phone1", headerText: 'Phone Number1', validationRules: { required: true } },
+                        { field: "Phone2", headerText: 'Phone Number2', validationRules: { required: true } },
+                        { field: "Datedebut", headerText: 'Start Date', validationRules: { required: true } },
                     ],
                     actionComplete: "complete",
                     actionBegin: "begin",

@@ -46,18 +46,59 @@
                         </div>
                     </div>
                     <div class="col-lg-8">
+
+
                         <div class="form-group">
                             <div class="col-lg-3">Email</div>
-                            <div class="col-lg-9"><input class="form-control" value="@profile.Email" disabled/></div>
+                            <div class="col-lg-9"><input class="form-control" value="@profile.Email" disabled /></div>
                         </div>
+
+
                         <div class="form-group">
                             <div class="col-lg-3">First Name</div>
                             <div class="col-lg-9"><input class="form-control" value="@profile.FirstName" disabled /></div>
                         </div>
+
+
                         <div class="form-group">
                             <div class="col-lg-3">Last Name</div>
                             <div class="col-lg-9"><input class="form-control" value="@profile.LastName" disabled /></div>
                         </div>
+                        @*-----------------------------------------------------------------------------------------*@
+
+                        <div class="form-group">
+                            <div class="col-lg-3">Address</div>
+                            <div class="col-lg-9"><input class="form-control" value="@profile.AdressePostale" disabled /></div>
+                        </div>
+
+                         <div class="form-group">
+                            <div class="col-lg-3">Ville</div>
+                            <div class="col-lg-9"><input class="form-control" value="@profile.Ville" disabled /></div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-lg-3">CIN</div>
+                            <div class="col-lg-9"><input class="form-control" value="@profile.CIN" disabled /></div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-lg-3">Phone Number1</div>
+                            <div class="col-lg-9"><input class="form-control" value="@profile.Phone1" disabled /></div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-lg-3">Phone Number2</div>
+                            <div class="col-lg-9"><input class="form-control" value="@profile.Phone2" disabled /></div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-lg-3">Start date</div>
+                            <div class="col-lg-9"><input class="form-control" value="@profile.Datedebut" disabled /></div>
+                        </div>
+
+
                     </div>
                 </div>
             </div>
@@ -67,17 +108,22 @@
             </div>
             <!-- /.box-footer-->
         </div>
+
+
         <div class="box">
             <div class="box-header with-border">
                 <h3 class="box-title text-primary"><i class="fa fa-user"></i> Edit Profile </h3>
                 <div class="box-tools pull-right">
+
                     <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
                             title="Collapse">
                         <i class="fa fa-minus"></i>
                     </button>
+
                     <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
                         <i class="fa fa-times"></i>
                     </button>
+
                 </div>
             </div>
             <div class="box-body">
@@ -111,6 +157,7 @@
     <input hidden id="UserProfileId" name="UserProfileId" value="{{:UserProfileId}}" />
     <input hidden id="ApplicationUserId" name="ApplicationUserId" value="{{:ApplicationUserId}}" />
     <table cellspacing="10">
+
         <tr>
             <td>
                 Email
@@ -119,6 +166,8 @@
                 <input id="EmailPassword" name="EmailPassword" value="{{:Email}}" />
             </td>
         </tr>
+
+
         <tr>
             <td>
                 First Name
@@ -133,6 +182,8 @@
                 <input id="LastNamePassword" name="LastNamePassword" value="{{:LastName}}" />
             </td>
         </tr>
+
+
         <tr>
             <td>
                 Old Password
@@ -143,6 +194,8 @@
             <td></td>
             <td></td>
         </tr>
+
+
         <tr>
             <td>
                 New Password
@@ -157,12 +210,15 @@
                 <input id="ConfirmPassword" name="ConfirmPassword" value="" />
             </td>
         </tr>
+
     </table>
 </script>
+
 <script id="templateEditForm" type="text/template">
     <input hidden id="UserProfileId" name="UserProfileId" value="{{:UserProfileId}}" />
     <input hidden id="ApplicationUserId" name="ApplicationUserId" value="{{:ApplicationUserId}}" />
     <table cellspacing="10">
+
         <tr>
             <td>
                 Email
@@ -171,20 +227,97 @@
                 <input id="Email" name="Email" value="{{:Email}}" />
             </td>
         </tr>
+
         <tr>
             <td>
                 First Name
             </td>
+
             <td>
                 <input id="FirstName" name="FirstName" value="{{:FirstName}}" />
             </td>
+
             <td>
                 Last Name
             </td>
+
             <td>
                 <input id="LastName" name="LastName" value="{{:LastName}}" />
             </td>
         </tr>
+
+        @*---------------------------------------------*@
+
+        <tr>
+            <td>
+                Adress
+            </td>
+            <td>
+                <input id="AdressePostale" name="AdressePostale" value="{{:AdressePostale}}" />
+            </td>
+
+            <td>
+                City
+            </td>
+            <td>
+                <input id="Ville" name="Ville" value="{{:Ville}}" />
+            </td>
+
+        </tr>
+
+
+        <tr>
+            <td>
+                Phone Number1
+            </td>
+            <td>
+                <input id="Phone1" name="Phone1" value="{{:Phone1}}" />
+            </td>
+
+            <td>
+                Phone Number2
+            </td>
+            <td>
+                <input id="Phone2" name="Phone2" value="{{:Phone2}}" />
+            </td>
+
+        </tr>
+
+
+        <tr>
+            <td>
+                CIN
+            </td>
+            <td colspan="3">
+                <input id="CIN" name="CIN" value="{{:CIN}}" />
+            </td>
+        </tr>
+
+
+        @if (User.IsInRole("Change Role"))
+        {
+            <tr>
+                <td>
+                    Start date
+                </td>
+                <td colspan="3">
+                    <input id="Datedebut" name="Datedebut" type="date" min="2020-01-01" max="2030-12-31" value="{{:Datedebut}}" />
+                </td>
+            </tr>
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
     </table>
 </script>
 
