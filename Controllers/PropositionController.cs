@@ -7,8 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace SafeCity2607last.Controllers
 {
-    [Authorize(Roles = Pages.MainMenu.PropositionPublic.RoleName)]
-    public class PropositionPublicController : Microsoft.AspNetCore.Mvc.Controller
+    [Authorize(Roles = Pages.MainMenu.Proposition.RoleName)]
+    public class PropositionController : Microsoft.AspNetCore.Mvc.Controller
     {
         public IActionResult Index()
         {

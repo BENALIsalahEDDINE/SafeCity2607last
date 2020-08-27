@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace SafeCity2607last.Models
 {
-    public class PublicationPublic
+    public class Proposition
     {
         [Key]
-        public int PaymentTypeId { get; set; }
-        [Required]
-        public string PaymentTypeName { get; set; }
+        public int CashBankId { get; set; }
+        [Display(Name = "Cash / Bank Name")]
+        public string CashBankName { get; set; }
         public string Description { get; set; }
     }
 }

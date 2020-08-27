@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewData["Title"] = "Proposition";
+    ViewData["Title"] = "Publication";
 }
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -10,7 +10,7 @@
         <!-- Default box -->
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title text-primary"><i class="fa fa-bus"></i> @ViewData["Title"]</h3>
+                <h3 class="box-title text-primary"><i class="fa fa-gear"></i> @ViewData["Title"]</h3>
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
                             title="Collapse">
@@ -26,7 +26,7 @@
             </div>
             <!-- /.box-body -->
             <div class="box-footer">
-                
+               
             </div>
             <!-- /.box-footer-->
         </div>
@@ -46,19 +46,19 @@
         $(function () {
 
             var dataManager = ej.DataManager({
-                url: "/api/PropositionPublic",
+                url: "/api/Publication",
                 adaptor: new ej.WebApiAdaptor(),
                 offline: true
             });
 
-            dataManager.ready.done(function (e) {
+            dataManager.ready.done(function (e) { 
                 $("#Grid").ejGrid({
                     dataSource: ej.DataManager({
                         json: e.result,
                         adaptor: new ej.remoteSaveAdaptor(),
-                        insertUrl: "/api/PropositionPublic/Insert",
-                        updateUrl: "/api/PropositionPublic/Update",
-                        removeUrl: "/api/PropositionPublic/Remove",
+                        insertUrl: "/api/Publication/Insert",
+                        updateUrl: "/api/Publication/Update",
+                        removeUrl: "/api/Publication/Remove",
                     }),
                     toolbarSettings: {
                         showToolbar: true,
@@ -84,13 +84,30 @@
                     allowPaging: true,
                     pageSettings: { pageSize: 10, printMode: ej.Grid.PrintMode.CurrentPage },
                     columns: [
-                        { field: "PropositionId", headerText: 'PropositionId', isPrimaryKey: true, isIdentity: true, visible: false },
-                        { field: "NomProposition", headerText: 'Nom Proposition', validationRules: { required: true } },
-                        { field: "Description", headerText: 'Description', },
+                        { field: "id_pub", headerText: 'Id Publication', isPrimaryKey: true, isIdentity: true, visible: false },
+                        { field: "id_source", headerText: 'Id Source', validationRules: { required: true } },
+                        { field: "id_cq", headerText: 'Id CQ', },
+                        { field: "id_comment", headerText: 'Id Comment', },
+                        { field: "publication", headerText: 'publication', },
+                   
+                        { field: "pho1", headerText: 'Photo 1', },
+                        { field: "pho2", headerText: 'Photo 2', },
+                        { field: "pho3", headerText: 'Photo 3', },
+                        { field: "ville", headerText: 'ville', },
+                        { field: "etat", headerText: 'etat', },
+                        { field: "explication", headerText: 'explication', },
+                        { field: "date", headerText: 'Date', editType: "datepicker", format: "{0:MM/dd/yyyy}", validationRules: { required: true } },
+                        { field: "heure", headerText: 'Heure', editType: "timepicker", validationRules: { required: true } },
+                        { field: "secteur", headerText: 'secteur', },
+                        { field: "rue", headerText: 'rue', },
+                        { field: "lati", headerText: 'lati', },
+                        { field: "longi", headerText: 'longi', },
+
+
                     ],
                     actionComplete: "complete",
                 });
-             });
+            });
 
             
         });

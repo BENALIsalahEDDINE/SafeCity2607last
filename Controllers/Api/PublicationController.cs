@@ -14,12 +14,12 @@ namespace SafeCity2607last.Controllers.Api
 {
     [Authorize]
     [Produces("application/json")]
-    [Route("api/PaymentType")]
-    public class PublicationPublicController : Microsoft.AspNetCore.Mvc.Controller
+    [Route("api/Publication")]
+    public class PublicationController : Microsoft.AspNetCore.Mvc.Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public PublicationPublicController(ApplicationDbContext context)
+        public PublicationController(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -28,37 +28,37 @@ namespace SafeCity2607last.Controllers.Api
         [HttpGet]
         public async Task<IActionResult> GetPaymentType()
         {
-            List<PublicationPublic> Items = await _context.PublicationPublic.ToListAsync();
+            List<Publication> Items = await _context.Publication.ToListAsync();
             int Count = Items.Count();
             return Ok(new { Items, Count });
         }
 
 
         [HttpPost("[action]")]
-        public IActionResult Insert([FromBody]CrudViewModel<PublicationPublic> payload)
+        public IActionResult Insert([FromBody]CrudViewModel<Publication> payload)
         {
-            PublicationPublic paymentType = payload.value;
-            _context.PublicationPublic.Add(paymentType);
+            Publication paymentType = payload.value;
+            _context.Publication.Add(paymentType);
             _context.SaveChanges();
             return Ok(paymentType);
         }
 
         [HttpPost("[action]")]
-        public IActionResult Update([FromBody]CrudViewModel<PublicationPublic> payload)
+        public IActionResult Update([FromBody]CrudViewModel<Publication> payload)
         {
-            PublicationPublic paymentType = payload.value;
-            _context.PublicationPublic.Update(paymentType);
+            Publication paymentType = payload.value;
+            _context.Publication.Update(paymentType);
             _context.SaveChanges();
             return Ok(paymentType);
         }
 
         [HttpPost("[action]")]
-        public IActionResult Remove([FromBody]CrudViewModel<PublicationPublic> payload)
+        public IActionResult Remove([FromBody]CrudViewModel<Publication> payload)
         {
-            PublicationPublic paymentType = _context.PublicationPublic
-                .Where(x => x.PaymentTypeId == (int)payload.key)
+            Publication paymentType = _context.Publication
+                .Where(x => x.id_pub == (int)payload.key)
                 .FirstOrDefault();
-            _context.PublicationPublic.Remove(paymentType);
+            _context.Publication.Remove(paymentType);
             _context.SaveChanges();
             return Ok(paymentType);
 

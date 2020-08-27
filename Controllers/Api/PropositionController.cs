@@ -14,12 +14,12 @@ namespace SafeCity2607last.Controllers.Api
 {
     [Authorize]
     [Produces("application/json")]
-    [Route("api/PropositionPublic")]
-    public class PropositionPublicController : Microsoft.AspNetCore.Mvc.Controller
+    [Route("api/Proposition")]
+    public class PropositionController : Microsoft.AspNetCore.Mvc.Controller
     {
         private readonly ApplicationDbContext _context;
 
-        public PropositionPublicController(ApplicationDbContext context)
+        public PropositionController(ApplicationDbContext context)
         {
             _context = context;
         }
@@ -28,36 +28,36 @@ namespace SafeCity2607last.Controllers.Api
         [HttpGet]
         public async Task<IActionResult> GetCashBank()
         {
-            List<PropositionPublic> Items = await _context.PropositionPublic.ToListAsync();
+            List<Proposition> Items = await _context.Proposition.ToListAsync();
             int Count = Items.Count();
             return Ok(new { Items, Count });
         }
 
         [HttpPost("[action]")]
-        public IActionResult Insert([FromBody]CrudViewModel<PropositionPublic> payload)
+        public IActionResult Insert([FromBody]CrudViewModel<Proposition> payload)
         {
-            PropositionPublic cashBank = payload.value;
-            _context.PropositionPublic.Add(cashBank);
+            Proposition cashBank = payload.value;
+            _context.Proposition.Add(cashBank);
             _context.SaveChanges();
             return Ok(cashBank);
         }
 
         [HttpPost("[action]")]
-        public IActionResult Update([FromBody]CrudViewModel<PropositionPublic> payload)
+        public IActionResult Update([FromBody]CrudViewModel<Proposition> payload)
         {
-            PropositionPublic cashBank = payload.value;
-            _context.PropositionPublic.Update(cashBank);
+            Proposition cashBank = payload.value;
+            _context.Proposition.Update(cashBank);
             _context.SaveChanges();
             return Ok(cashBank);
         }
 
         [HttpPost("[action]")]
-        public IActionResult Remove([FromBody]CrudViewModel<PropositionPublic> payload)
+        public IActionResult Remove([FromBody]CrudViewModel<Proposition> payload)
         {
-            PropositionPublic cashBank = _context.PropositionPublic
+            Proposition cashBank = _context.Proposition
                 .Where(x => x.CashBankId == (int)payload.key)
                 .FirstOrDefault();
-            _context.PropositionPublic.Remove(cashBank);
+            _context.Proposition.Remove(cashBank);
             _context.SaveChanges();
             return Ok(cashBank);
 

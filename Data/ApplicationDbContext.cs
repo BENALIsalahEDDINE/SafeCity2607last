@@ -27,7 +27,7 @@ namespace SafeCity2607last.Data
 
 
 
-        public DbSet<SafeCity2607last.Models.PropositionPublic> PropositionPublic { get; set; }
+        public DbSet<SafeCity2607last.Models.Proposition> Proposition { get; set; }
 
 
         public DbSet<SafeCity2607last.Models.Admin> Admin { get; set; }
@@ -35,9 +35,10 @@ namespace SafeCity2607last.Data
 
         public DbSet<SafeCity2607last.Models.NumberSequence> NumberSequence { get; set; }
 
-        public DbSet<SafeCity2607last.Models.PublicationPublic> PublicationPublic { get; set; }
+        public DbSet<SafeCity2607last.Models.Publication> Publication { get; set; }
 
-      
+        public DbSet<SafeCity2607last.Models.Chercheur> Chercheur { get; set; }
+
 
 
         public DbSet<SafeCity2607last.Models.MessagePublic> MessagePublic { get; set; }

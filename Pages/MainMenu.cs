@@ -33,22 +33,22 @@ namespace SafeCity2607last.Pages
        
 
 
-        public static class PropositionPublic
+        public static class Proposition
         {
             public const string PageName = "Proposition";
-            public const string RoleName = "Proposition Public";
-            public const string Path = "/PropositionPublic/Index";
-            public const string ControllerName = "PropositionPublic";
+            public const string RoleName = "Proposition";
+            public const string Path = "/Proposition/Index";
+            public const string ControllerName = "Proposition";
             public const string ActionName = "Index";
         }
 
 
-        public static class PublicationPublic
+        public static class Publication
         {
             public const string PageName = "Publication";
             public const string RoleName = "Publication";
-            public const string Path = "/PublicationPublic/Index";
-            public const string ControllerName = "PublicationPublic";
+            public const string Path = "/Publication/Index";
+            public const string ControllerName = "Publication";
             public const string ActionName = "Index";
         }
 
@@ -111,9 +111,9 @@ namespace SafeCity2607last.Pages
         {
             public const string PageName = "Chercheur";
             public const string RoleName = "Chercheur";
-            public const string Path = "/UserRole/Index";
+            public const string Path = "/Chercheur/Index";
             public const string ControllerName = "Chercheur";
-            public const string ActionName = "Chercheur";
+            public const string ActionName = "Index";
         }
 
         public static class Statistiques

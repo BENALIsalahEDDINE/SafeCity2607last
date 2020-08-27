@@ -49,13 +49,13 @@ namespace SafeCity2607last.Services
                
              
 
-                await _context.PropositionPublic.AddAsync(new PropositionPublic { CashBankName = "Default" });
+                await _context.Proposition.AddAsync(new Proposition { CashBankName = "Default" });
                 await _context.SaveChangesAsync();
 
                
 
 
-                await _context.PublicationPublic.AddAsync(new PublicationPublic { PaymentTypeName = "Default" });
+                await _context.Publication.AddAsync(new Publication { id_source = "Default" });
                 await _context.SaveChangesAsync();
 
            
