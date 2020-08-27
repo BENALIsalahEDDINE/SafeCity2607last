@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewData["Title"] = "Proposition Public";
+    ViewData["Title"] = "Proposition";
 }
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -84,8 +84,8 @@
                     allowPaging: true,
                     pageSettings: { pageSize: 10, printMode: ej.Grid.PrintMode.CurrentPage },
                     columns: [
-                        { field: "CashBankId", headerText: 'Proposition Public Id', isPrimaryKey: true, isIdentity: true, visible: false },
-                        { field: "CashBankName", headerText: 'Nom Proposition Public', validationRules: { required: true } },
+                        { field: "PropositionId", headerText: 'PropositionId', isPrimaryKey: true, isIdentity: true, visible: false },
+                        { field: "NomProposition", headerText: 'Nom Proposition', validationRules: { required: true } },
                         { field: "Description", headerText: 'Description', },
                     ],
                     actionComplete: "complete",

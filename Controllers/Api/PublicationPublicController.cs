@@ -14,7 +14,7 @@ namespace SafeCity2607last.Controllers.Api
 {
     [Authorize]
     [Produces("application/json")]
-    [Route("api/PublicationPublicController")]
+    [Route("api/PaymentType")]
     public class PublicationPublicController : Microsoft.AspNetCore.Mvc.Controller
     {
         private readonly ApplicationDbContext _context;
@@ -24,7 +24,7 @@ namespace SafeCity2607last.Controllers.Api
             _context = context;
         }
 
-
+    
         [HttpGet]
         public async Task<IActionResult> GetPaymentType()
         {
