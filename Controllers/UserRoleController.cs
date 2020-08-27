@@ -38,7 +38,7 @@ namespace SafeCity2607last.Controllers
             return View();
         }
 
-        [Authorize(Roles = Pages.MainMenu.ChangeRole.RoleName)]
+        [Authorize(Roles ="Change Role")]
         public IActionResult ChangeRole()
         {
             return View();

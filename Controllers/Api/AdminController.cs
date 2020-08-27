@@ -24,41 +24,49 @@ namespace SafeCity2607last.Controllers.Api
             _context = context;
         }
 
+
+
         // GET: api/Customer
         [HttpGet]
         public async Task<IActionResult> GetCustomer()
         {
-            List<Admin> Items = await _context.Admin.ToListAsync();
+            List<UserProfile> Items = await _context.UserProfile.ToListAsync();
             int Count = Items.Count();
             return Ok(new { Items, Count });
         }
 
 
+
+
+
         [HttpPost("[action]")]
-        public IActionResult Insert([FromBody]CrudViewModel<Admin> payload)
+        public IActionResult Insert([FromBody]CrudViewModel<UserProfile> payload)
         {
-            Admin customer = payload.value;
-            _context.Admin.Add(customer);
+            UserProfile customer = payload.value;
+            _context.UserProfile.Add(customer);
+            _context.SaveChanges();
+            return Ok(customer);
+        }
+
+
+
+
+        [HttpPost("[action]")]
+        public IActionResult Update([FromBody]CrudViewModel<UserProfile> payload)
+        {
+            UserProfile customer = payload.value;
+            _context.UserProfile.Update(customer);
             _context.SaveChanges();
             return Ok(customer);
         }
 
         [HttpPost("[action]")]
-        public IActionResult Update([FromBody]CrudViewModel<Admin> payload)
+        public IActionResult Remove([FromBody]CrudViewModel<UserProfile> payload)
         {
-            Admin customer = payload.value;
-            _context.Admin.Update(customer);
-            _context.SaveChanges();
-            return Ok(customer);
-        }
-
-        [HttpPost("[action]")]
-        public IActionResult Remove([FromBody]CrudViewModel<Admin> payload)
-        {
-            Admin customer = _context.Admin
-                .Where(x => x.CustomerId == (int)payload.key)
+            UserProfile customer = _context.UserProfile
+                .Where(x => x.UserProfileId == (int)payload.key)
                 .FirstOrDefault();
-            _context.Admin.Remove(customer);
+            _context.UserProfile.Remove(customer);
             _context.SaveChanges();
             return Ok(customer);
 

@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace SafeCity2607last.Controllers
 {
-    [Authorize(Roles = Pages.MainMenu.Admin.RoleName)]
+    [Authorize(Roles ="Admins")]
     public class AdminController : Microsoft.AspNetCore.Mvc.Controller
     {
         public IActionResult Index()

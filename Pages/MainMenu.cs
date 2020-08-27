@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Authorization;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -7,6 +8,7 @@ namespace SafeCity2607last.Pages
 {
     public static class MainMenu
     {
+        
         public static class Admin
         {
             public const string PageName = "Admins";
@@ -81,6 +83,7 @@ namespace SafeCity2607last.Pages
             public const string ActionName = "Index";
         }
 
+       
         public static class ChangePassword
         {
             public const string PageName = "Change Password";
@@ -92,6 +95,7 @@ namespace SafeCity2607last.Pages
 
         public static class Role
         {
+
             public const string PageName = "Role";
             public const string RoleName = "Role";
             public const string Path = "/UserRole/Role";

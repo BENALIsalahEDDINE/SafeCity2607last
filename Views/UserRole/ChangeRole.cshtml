@@ -38,8 +38,10 @@
 <!-- /.content-wrapper -->
 
 <script id="templateForm" type="text/template">
+
     <input hidden id="UserProfileId" name="UserProfileId" value="{{:UserProfileId}}" />
     <input hidden id="ApplicationUserId" name="ApplicationUserId" value="{{:ApplicationUserId}}" />
+
     <table cellspacing="10">
         <tr>
             <td>
@@ -123,7 +125,9 @@
                         { field: "UserProfileId", headerText: 'Id', isPrimaryKey: true, isIdentity: true, visible: false },
                         { field: "Email", headerText: 'Email', validationRules: { required: true } },
                         { field: "FirstName", headerText: 'First Name', validationRules: { required: true } },
-                        { field: "LastName", headerText: 'Last Name', validationRules: { required: false } },
+                        { field: "LastName", headerText: 'Last Name', validationRules: { required: true } },
+
+                        //{ field: "Function", headerText: 'Roles', validationRules: { required: false } },
                     ],
                     actionComplete: "complete",
                 });
