@@ -55,7 +55,7 @@ namespace SafeCity2607last.Controllers.Api
         public IActionResult Remove([FromBody]CrudViewModel<Proposition> payload)
         {
             Proposition cashBank = _context.Proposition
-                .Where(x => x.CashBankId == (int)payload.key)
+                .Where(x => x.Id_Prop == (int)payload.key)
                 .FirstOrDefault();
             _context.Proposition.Remove(cashBank);
             _context.SaveChanges();

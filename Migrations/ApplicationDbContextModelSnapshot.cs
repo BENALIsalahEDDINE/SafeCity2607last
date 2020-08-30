@@ -251,7 +251,7 @@ namespace SafeCity2607last.Migrations
                     b.ToTable("Chercheur");
                 });
 
-            modelBuilder.Entity("SafeCity2607last.Models.CommentairesdePublic", b =>
+            modelBuilder.Entity("SafeCity2607last.Models.Commentaires", b =>
                 {
                     b.Property<int>("ProductTypeId")
                         .ValueGeneratedOnAdd();
@@ -263,7 +263,7 @@ namespace SafeCity2607last.Migrations
 
                     b.HasKey("ProductTypeId");
 
-                    b.ToTable("CommentairesdePublic");
+                    b.ToTable("Commentaires");
                 });
 
             modelBuilder.Entity("SafeCity2607last.Models.ControleurdeQualité", b =>
@@ -295,7 +295,53 @@ namespace SafeCity2607last.Migrations
                     b.ToTable("ControleurdeQualité");
                 });
 
-            modelBuilder.Entity("SafeCity2607last.Models.MessagePublic", b =>
+            modelBuilder.Entity("SafeCity2607last.Models.MessageAuPublic", b =>
+                {
+                    b.Property<int>("Id_Mes")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Date");
+
+                    b.Property<string>("Heure");
+
+                    b.Property<string>("Id_Com");
+
+                    b.Property<string>("Id_Source")
+                        .IsRequired();
+
+                    b.Property<string>("Message");
+
+                    b.Property<string>("Ville");
+
+                    b.HasKey("Id_Mes");
+
+                    b.ToTable("MessageAuPublic");
+                });
+
+            modelBuilder.Entity("SafeCity2607last.Models.MessagePersonnalise", b =>
+                {
+                    b.Property<int>("Id_Mes")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Date");
+
+                    b.Property<string>("Heure");
+
+                    b.Property<string>("Id_Com");
+
+                    b.Property<string>("Id_Source")
+                        .IsRequired();
+
+                    b.Property<string>("Message");
+
+                    b.Property<string>("Ville");
+
+                    b.HasKey("Id_Mes");
+
+                    b.ToTable("MessagePersonnalise");
+                });
+
+            modelBuilder.Entity("SafeCity2607last.Models.Message", b =>
                 {
                     b.Property<int>("ShipmentTypeId")
                         .ValueGeneratedOnAdd();
@@ -307,7 +353,30 @@ namespace SafeCity2607last.Migrations
 
                     b.HasKey("ShipmentTypeId");
 
-                    b.ToTable("MessagePublic");
+                    b.ToTable("Message");
+                });
+
+            modelBuilder.Entity("SafeCity2607last.Models.MessageRecu", b =>
+                {
+                    b.Property<int>("Id_Mes")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Date");
+
+                    b.Property<string>("Heure");
+
+                    b.Property<string>("Id_Com");
+
+                    b.Property<string>("Id_Source")
+                        .IsRequired();
+
+                    b.Property<string>("Message");
+
+                    b.Property<string>("Ville");
+
+                    b.HasKey("Id_Mes");
+
+                    b.ToTable("MessageRecu");
                 });
 
             modelBuilder.Entity("SafeCity2607last.Models.NumberSequence", b =>
@@ -333,14 +402,23 @@ namespace SafeCity2607last.Migrations
 
             modelBuilder.Entity("SafeCity2607last.Models.Proposition", b =>
                 {
-                    b.Property<int>("CashBankId")
+                    b.Property<int>("Id_Prop")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("CashBankName");
+                    b.Property<DateTimeOffset>("Date");
 
-                    b.Property<string>("Description");
+                    b.Property<TimeSpan>("Heure");
 
-                    b.HasKey("CashBankId");
+                    b.Property<string>("Id_Com");
+
+                    b.Property<string>("Id_Source")
+                        .IsRequired();
+
+                    b.Property<string>("Propositionn");
+
+                    b.Property<string>("Ville");
+
+                    b.HasKey("Id_Prop");
 
                     b.ToTable("Proposition");
                 });

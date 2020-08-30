@@ -47,17 +47,25 @@ namespace SafeCity2607last.Pages
 
         public static class Publication
         {
-            public const string PageName = "Publication";
-            public const string RoleName = "Publication";
+            public const string PageName = "Gestion des Publications";
+            public const string RoleName = "Gestion des Publications";
             public const string Path = "/Publication/Index";
             public const string ControllerName = "Publication";
+            public const string ActionName = "Index";
+        }
+        public static class Publications
+        {
+            public const string PageName = "Publications";
+            public const string RoleName = "Publications";
+            public const string Path = "/Publications/Index";
+            public const string ControllerName = "Publications";
             public const string ActionName = "Index";
         }
 
         public static class CommentairesdePublic
         {
             public const string PageName = "Commentaires";
-            public const string RoleName = "Commentaires de Public";
+            public const string RoleName = "CommentairesdePublic";
             public const string Path = "/CommentairesdePublic/Index";
             public const string ControllerName = "CommentairesdePublic";
             public const string ActionName = "Index";
@@ -65,12 +73,45 @@ namespace SafeCity2607last.Pages
 
 
 
-        public static class MessagePublic
+      
+
+        
+    public static class Message
+    {
+        public const string PageName = "Message ";
+        public const string RoleName = "Message";
+        public const string Path = "/Message/Index";
+        public const string ControllerName = "Message";
+        public const string ActionName = "Index";
+
+    }
+    public static class MessageRecu
         {
-            public const string PageName = "Message";
-            public const string RoleName = "Message Public";
-            public const string Path = "/MessagePublic/Index";
-            public const string ControllerName = "MessagePublic";
+            public const string PageName = "Message Reçu ";
+            public const string RoleName = "MessageRecu";
+            public const string Path = "/MessageRecu/Index";
+            public const string ControllerName = "MessageRecu";
+            public const string ActionName = "Index";
+
+        }
+
+        
+
+        public static class MessagePersonnalise
+        {
+            public const string PageName = "Message Personnalisé";
+            public const string RoleName = "MessagePersonnalise";
+            public const string Path = "/MessagePersonnalise/Index";
+            public const string ControllerName = "MessagePersonnalise";
+            public const string ActionName = "Index";
+
+        }
+        public static class MessageAuPublic
+        {
+            public const string PageName = "Message Au Public";
+            public const string RoleName = "MessageAuPublic";
+            public const string Path = "/MessageAuPublic/Index";
+            public const string ControllerName = "MessageAuPublic";
             public const string ActionName = "Index";
 
         }
@@ -130,4 +171,5 @@ namespace SafeCity2607last.Pages
         }
 
     }
+
 }

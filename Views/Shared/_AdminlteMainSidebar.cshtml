@@ -20,95 +20,111 @@
 
         <!-- sidebar menu: : style can be found in sidebar.less -->
         <ul class="sidebar-menu" data-widget="tree">
-            <li class="header">USER & ROLE</li>
+            <li class="header" style="font-size:15px;color:steelblue">USER & ROLE</li>
             <li class="@Html.IsSelected(controller: MainMenu.User.ControllerName, action: MainMenu.User.ActionName)">
                 <a href="@MainMenu.User.Path">
-                    <i class="fa fa-users"></i> <span>@MainMenu.User.PageName</span>
+                    <i class="fa fa-users" style="font-size:20px;color:greenyellow" nav-icon"></i> <span>@MainMenu.User.PageName</span>
                 </a>
             </li>
             <li class="@Html.IsSelected(controller: MainMenu.ChangePassword.ControllerName, action: MainMenu.ChangePassword.ActionName)">
                 <a href="@MainMenu.ChangePassword.Path">
-                    <i class="fa fa-key"></i> <span>@MainMenu.ChangePassword.PageName</span>
+                    <i class="fa fa-key" style="font-size:20px;color:red"></i> <span>@MainMenu.ChangePassword.PageName</span>
                 </a>
             </li>
             <li class="@Html.IsSelected(controller: MainMenu.Role.ControllerName, action: MainMenu.Role.ActionName)">
                 <a href="@MainMenu.Role.Path">
-                    <i class="fa fa-gear"></i> <span>@MainMenu.Role.PageName</span>
+                    <i class="fa fa-gear" style="font-size:20px;color:blueviolet" nav-icon"></i> <span>@MainMenu.Role.PageName</span>
                 </a>
             </li>
             <li class="@Html.IsSelected(controller: MainMenu.ChangeRole.ControllerName, action: MainMenu.ChangeRole.ActionName)">
                 <a href="@MainMenu.ChangeRole.Path">
-                    <i class="fa fa-gear"></i> <span>@MainMenu.ChangeRole.PageName</span>
+                    <i class="fa fa-gear" style="font-size:20px;color:blue" nav-icon"></i> <span>@MainMenu.ChangeRole.PageName</span>
                 </a>
             </li>
 
-            <li class="header">ADMIN</li>
+            <li class="header" style="font-size: 15px;color: steelblue">ADMIN</li>
 
 
             <li class="@Html.IsSelected(controller: MainMenu.Admin.ControllerName)">
                 <a href="@MainMenu.Admin.Path">
-                    <i class="fa fa-users"></i> <span>@MainMenu.Admin.PageName</span>
+                    <i class="fa fa-users" style="font-size:20px;color:blueviolet" nav-icon"></i> <span>@MainMenu.Admin.PageName</span>
                 </a>
             </li>
 
 
 
-            <li class="header">CONTROLEUR QUALITE</li>
+            <li class="header" style="font-size:15px;color:steelblue">CONTROLEUR QUALITE</li>
 
 
             <li class="@Html.IsSelected(controller: MainMenu.ControleurdeQualité.ControllerName)">
                 <a href="@MainMenu.ControleurdeQualité.Path">
-                    <i class="fa fa-users"></i> <span>@MainMenu.ControleurdeQualité.PageName</span>
+                    <i class="fa fa-users" style="font-size:20px;color:lightblue" nav-icon"></i> <span>@MainMenu.ControleurdeQualité.PageName</span>
                 </a>
             </li>
-            <li class="header">CHERCHEUR</li>
+            <li class="header" style="font-size:15px;color:steelblue">CHERCHEUR</li>
 
 
             <li class="@Html.IsSelected(controller: MainMenu.Chercheur.ControllerName)">
                 <a href="@MainMenu.Chercheur.Path">
-                    <i class="fa fa-users"></i> <span>@MainMenu.Chercheur.PageName</span>
+                    <i class="fa fa-users" style="font-size:20px;color:forestgreen" nav-icon"></i> <span>@MainMenu.Chercheur.PageName</span>
                 </a>
             </li>
 
 
 
 
-            <li class="header">PROPOSITIONS/PUBLICATIONS/MESSAGES</li>
+            <li class="header" style="font-size:15px;color:steelblue">PUBLICATIONS ET PROPOSITIONS</li>
 
 
 
 
             <li class="@Html.IsSelected(controller: MainMenu.Publication.ControllerName)">
                 <a href="@MainMenu.Publication.Path">
-                    <i class="fa fa-gear"></i> <span>@MainMenu.Publication.PageName</span>
+                    <i class="fa fa-gear" style="font-size:20px;color:cornflowerblue" nav-icon"></i> <span>@MainMenu.Publication.PageName</span>
                 </a>
             </li>
-            <li class="@Html.IsSelected(controller: MainMenu.MessagePublic.ControllerName)">
-                <a href="@MainMenu.MessagePublic.Path">
-                    <i class="fa fa-gear"></i> <span>@MainMenu.MessagePublic.PageName</span>
+            <li class="@Html.IsSelected(controller: MainMenu.Publications.ControllerName)">
+                <a href="@MainMenu.Publications.Path">
+                    <i class="fa fa-gear" style="font-size:20px;color:blueviolet" nav-icon"></i> <span>@MainMenu.Publications.PageName</span>
                 </a>
             </li>
             <li class="@Html.IsSelected(controller: MainMenu.Proposition.ControllerName)">
                 <a href="@MainMenu.Proposition.Path">
-                    <i class="fa fa-money"></i> <span>@MainMenu.Proposition.PageName</span>
+                    <i class="fa fa-gears" style="font-size:20px;color:lawngreen" nav-icon"></i> <span>@MainMenu.Proposition.PageName</span>
                 </a>
             </li>
-            <li class="header">COMMENTAIRES</li>
 
 
+            <li class="header" style="font-size:15px;color:steelblue">Messages</li>
+
+            <li class="@Html.IsSelected(controller: MainMenu.MessageRecu.ControllerName)">
+                <a href="@MainMenu.MessageRecu.Path">
+                    <i class="fa fa-envelope" style="font-size:20px;color:blueviolet" nav-icon"></i> <span>@MainMenu.MessageRecu.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.MessagePersonnalise.ControllerName)">
+                <a href="@MainMenu.MessagePersonnalise.Path">
+                    <i class="fa fa-envelope" style="font-size:20px;color:greenyellow" nav-icon"></i> <span>@MainMenu.MessagePersonnalise.PageName</span>
+                </a>
+            </li>
+            <li class="@Html.IsSelected(controller: MainMenu.MessageAuPublic.ControllerName)">
+                <a href="@MainMenu.MessageAuPublic.Path">
+                    <i class="fa fa-envelope" style="font-size:20px;color:red" nav-icon"></i> <span>@MainMenu.MessageAuPublic.PageName</span>
+                </a>
+            </li>
+
+            <li class="header" style="font-size:15px;color:steelblue">COMMENTAIRES</li>
             <li class="@Html.IsSelected(controller: MainMenu.CommentairesdePublic.ControllerName)">
                 <a href="@MainMenu.CommentairesdePublic.Path">
-                    <i class="fa fa-gear"></i> <span>@MainMenu.CommentairesdePublic.PageName</span>
+                    <i class="fa fa-gears" style="font-size:20px;color:peru" nav-icon"></i> <span>@MainMenu.CommentairesdePublic.PageName</span>
                 </a>
             </li>
 
-
-
-            <li class="header">DASHBOARD</li>
+            <li class="header has-treeview" style="font-size:15px;color:steelblue">STATISTIQUES</li>
 
             <li class="@Html.IsSelected(controller: MainMenu.Statistiques.ControllerName)">
                 <a href="@MainMenu.Statistiques.Path">
-                    <i class="fa fa-pie-chart"></i> <span>@MainMenu.Statistiques.PageName</span>
+                    <i class="fa fa-pie-chart" style="font-size:20px;color:seagreen"></i> <span>@MainMenu.Statistiques.PageName</span>
                 </a>
             </li>
 

@@ -36,12 +36,15 @@ namespace SafeCity2607last.Data
         public DbSet<SafeCity2607last.Models.NumberSequence> NumberSequence { get; set; }
 
         public DbSet<SafeCity2607last.Models.Publication> Publication { get; set; }
+        public DbSet<SafeCity2607last.Models.Publications> Publications { get; set; }
 
         public DbSet<SafeCity2607last.Models.Chercheur> Chercheur { get; set; }
-
-
-
-        public DbSet<SafeCity2607last.Models.MessagePublic> MessagePublic { get; set; }
+        public DbSet<SafeCity2607last.Models.MessageRecu> MessageRecu { get; set; }
+        public DbSet<SafeCity2607last.Models.MessagePersonnalise> MessagePersonnalise { get; set; }
+        public DbSet<SafeCity2607last.Models.MessageAuPublic> MessageAuPublic { get; set; }
+        public DbSet<SafeCity2607last.Models.CommentairesdePublic> CommentairesdePublic { get; set; }
+        public DbSet<SafeCity2607last.Models.Message> Message { get; set; }
+        
 
 
         public DbSet<SafeCity2607last.Models.ControleurdeQualité> ControleurdeQualité { get; set; }
@@ -49,6 +52,5 @@ namespace SafeCity2607last.Data
 
 
         public DbSet<SafeCity2607last.Models.UserProfile> UserProfile { get; set; }
-        public DbSet<SafeCity2607last.Models.CommentairesdePublic> CommentairesdePublic { get; set; }
     }
 }

@@ -209,7 +209,7 @@ namespace SafeCity2607last.Migrations
                     b.ToTable("AspNetUsers");
                 });
 
-            modelBuilder.Entity("SafeCity2607last.Models.CommentairesdePublic", b =>
+            modelBuilder.Entity("SafeCity2607last.Models.Commentaires", b =>
                 {
                     b.Property<int>("ProductTypeId")
                         .ValueGeneratedOnAdd();
@@ -221,7 +221,7 @@ namespace SafeCity2607last.Migrations
 
                     b.HasKey("ProductTypeId");
 
-                    b.ToTable("CommentairesdePublic");
+                    b.ToTable("Commentaires");
                 });
 
             modelBuilder.Entity("SafeCity2607last.Models.ControleurdeQualité", b =>
@@ -253,7 +253,7 @@ namespace SafeCity2607last.Migrations
                     b.ToTable("ControleurdeQualité");
                 });
 
-            modelBuilder.Entity("SafeCity2607last.Models.MessagePublic", b =>
+            modelBuilder.Entity("SafeCity2607last.Models.Message", b =>
                 {
                     b.Property<int>("ShipmentTypeId")
                         .ValueGeneratedOnAdd();
@@ -265,7 +265,7 @@ namespace SafeCity2607last.Migrations
 
                     b.HasKey("ShipmentTypeId");
 
-                    b.ToTable("MessagePublic");
+                    b.ToTable("Message");
                 });
 
             modelBuilder.Entity("SafeCity2607last.Models.NumberSequence", b =>

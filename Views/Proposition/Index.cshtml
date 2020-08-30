@@ -1,7 +1,5 @@
 ﻿
-@{
-    ViewData["Title"] = "Proposition";
-}
+@{ ViewData["Title"] = "Proposition"; }
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
 
@@ -10,7 +8,7 @@
         <!-- Default box -->
         <div class="box">
             <div class="box-header with-border">
-                <h3 class="box-title text-primary"><i class="fa fa-bus"></i> @ViewData["Title"]</h3>
+                <h3 class="box-title text-primary"><i class="fa fa-gear"></i> @ViewData["Title"]</h3>
                 <div class="box-tools pull-right">
                     <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
                             title="Collapse">
@@ -26,7 +24,7 @@
             </div>
             <!-- /.box-body -->
             <div class="box-footer">
-                
+
             </div>
             <!-- /.box-footer-->
         </div>
@@ -84,15 +82,20 @@
                     allowPaging: true,
                     pageSettings: { pageSize: 10, printMode: ej.Grid.PrintMode.CurrentPage },
                     columns: [
-                        { field: "PropositionId", headerText: 'PropositionId', isPrimaryKey: true, isIdentity: true, visible: false },
-                        { field: "NomProposition", headerText: 'Nom Proposition', validationRules: { required: true } },
-                        { field: "Description", headerText: 'Description', },
+
+                        { field: "Id_Prop", headerText: 'Id_Prop', isPrimaryKey: true, isIdentity: true, width: 120 },
+                        { field: "Id_Source", headerText: 'Id_Source', validationRules: { required: true }, width: 120},
+                        { field: "Id_Com", headerText: 'Id_Com', width: 120},
+                        { field: "Propositionn", headerText: 'Proposition', width: 900 },
+                        { field: "Ville", headerText: 'Ville', width: 120 },
+                        { field: "Date", headerText: 'Date', editType: "datepicker", format: "{0:MM/dd/yyyy}", validationRules: { required: true }, width: 120},
+                        { field: "Heure", headerText: 'Heure', editType: "datetimepicker", format: "{0:HH:mm:ss}", validationRules: { required: true }, width: 120},
                     ],
                     actionComplete: "complete",
                 });
-             });
+            });
 
-            
+
         });
 
         function complete(args) {
@@ -105,3 +108,11 @@
     </script>
 }
 
+
+
+
+
+
+
+
+  

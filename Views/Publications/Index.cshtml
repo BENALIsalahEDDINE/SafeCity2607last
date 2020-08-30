@@ -1,0 +1,135 @@
+﻿
+@{ ViewData["Title"] = "Publications"; }
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+
+    <!-- Main content -->
+    <section class="content">
+        <!-- Default box -->
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title text-primary"><i class="fa fa-gear"></i> @ViewData["Title"]</h3>
+                <div class="box-tools pull-right">
+                    <button type="button" class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip"
+                            title="Collapse">
+                        <i class="fa fa-minus"></i>
+                    </button>
+                    <button type="button" class="btn btn-box-tool" data-widget="remove" data-toggle="tooltip" title="Remove">
+                        <i class="fa fa-times"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="box-body">
+                <div id="Grid"></div>
+            </div>
+            <!-- /.box-body -->
+            <div class="box-footer">
+
+            </div>
+            <!-- /.box-footer-->
+        </div>
+        <!-- /.box -->
+    </section>
+    <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+
+@section Styles{
+
+}
+
+@section Scripts{
+
+    <script type="text/javascript">
+        $(function () {
+
+            var dataManager = ej.DataManager({
+                url: "/api/Publication",
+                adaptor: new ej.WebApiAdaptor(),
+                offline: true
+            });
+
+            dataManager.ready.done(function (e) {
+                $("#Grid").ejGrid({
+                    dataSource: ej.DataManager({
+                        json: e.result,
+                        adaptor: new ej.remoteSaveAdaptor(),
+                        insertUrl: "/api/Publication/Insert",
+                        updateUrl: "/api/Publication/Update",
+                        removeUrl: "/api/Publication/Remove",
+                    }),
+
+
+                    toolbarSettings: {
+                        showToolbar: true,
+                        toolbarItems: ["add", "update", "cancel", "search", "printGrid"]
+                    },
+                    editSettings: {
+                        allowPaging: true,
+                        allowReordering: true,
+                        Resizable: true,
+                        allowTextWrap: true,
+                        allowEditing: false,
+                        allowAdding: true,
+                        allowDeleting: true,
+                        showDeleteConfirmDialog: true,
+                        editMode: "dialog"
+                    },
+                    isResponsive: true,
+                    enableResponsiveRow: true,
+                    Resizable: true,
+                    allowPaging: true,
+                    allowReordering: true,
+                    allowTextWrap: true,
+                    allowSorting: true,
+                    allowSearching: true,
+                    allowFiltering: true,
+                    filterSettings: {
+                        filterType: "excel",
+                        maxFilterChoices: 100,
+                        enableCaseSensitivity: false
+                    },
+                    allowPaging: true,
+                    pageSettings: { pageSize: 10, printMode: ej.Grid.PrintMode.CurrentPage },
+                    columns: [
+                        { field: "id_pub", headerText: 'id_pub', isPrimaryKey: true, isIdentity: true },
+                        { field: "id_source", headerText: 'id_source', validationRules: { required: true } },
+                        { field: "id_cq", headerText: 'id_cq', },
+                        { field: "id_comment", headerText: 'id_comment',Resizable : true, },
+                        { field: "publication", headerText: 'publication', width: 550 },
+
+                        { field: "pho1", headerText: 'Photo 1', },
+                        { field: "pho2", headerText: 'Photo 2', },
+                        { field: "pho3", headerText: 'Photo 3', },
+                        { field: "ville", headerText: 'ville', },
+                 
+                        { field: "explication", headerText: 'Explication', },
+                        { field: "date", headerText: 'Date', editType: "datepicker", format: "{0:MM/dd/yyyy}", validationRules: { required: true } },
+                        { field: "heure", headerText: 'Heure', editType: "datetimepicker", format: "{0:HH:mm:ss}", validationRules: { required: true } },
+                        { field: "secteur", headerText: 'secteur', },
+                        { field: "rue", headerText: 'rue', },
+                        { field: "lati", headerText: 'lati', },
+                        { field: "longi", headerText: 'longi', width: 100, },
+
+
+                    ],
+                    actionComplete: "complete",
+                });
+            });
+
+
+        });
+
+        function complete(args) {
+            if (args.requestType == 'beginedit') {
+                $("#" + this._id + "_dialogEdit").ejDialog({ title: "Edit Record" });
+            }
+        }
+
+
+    </script>
+
+}
+
+
+

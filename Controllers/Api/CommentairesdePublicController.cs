@@ -36,7 +36,7 @@ namespace SafeCity2607last.Controllers.Api
 
 
         [HttpPost("[action]")]
-        public IActionResult Insert([FromBody]CrudViewModel<CommentairesdePublic> payload)
+        public IActionResult Insert([FromBody] CrudViewModel<CommentairesdePublic> payload)
         {
             CommentairesdePublic productType = payload.value;
             _context.CommentairesdePublic.Add(productType);
@@ -45,7 +45,7 @@ namespace SafeCity2607last.Controllers.Api
         }
 
         [HttpPost("[action]")]
-        public IActionResult Update([FromBody]CrudViewModel<CommentairesdePublic> payload)
+        public IActionResult Update([FromBody] CrudViewModel<CommentairesdePublic> payload)
         {
             CommentairesdePublic productType = payload.value;
             _context.CommentairesdePublic.Update(productType);
@@ -54,10 +54,10 @@ namespace SafeCity2607last.Controllers.Api
         }
 
         [HttpPost("[action]")]
-        public IActionResult Remove([FromBody]CrudViewModel<CommentairesdePublic> payload)
+        public IActionResult Remove([FromBody] CrudViewModel<CommentairesdePublic> payload)
         {
             CommentairesdePublic productType = _context.CommentairesdePublic
-                .Where(x => x.ProductTypeId == (int)payload.key)
+                .Where(x => x.CommentaireId == (int)payload.key)
                 .FirstOrDefault();
             _context.CommentairesdePublic.Remove(productType);
             _context.SaveChanges();

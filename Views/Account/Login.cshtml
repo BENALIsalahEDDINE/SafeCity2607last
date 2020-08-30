@@ -14,7 +14,7 @@
     <!-- /.login-logo -->
     <div class="login-box-body">
         <div class="login-logo">
-            <a href="/"><b>Cent</b>Exam</a>
+            <a href="https://www.centexam.com"><b>Cent</b>Exam</a>
         </div>
         <p class="login-box-msg">Sign in to start your session</p>
         <form asp-route-returnurl="@ViewData["ReturnUrl"]" method="post">
@@ -45,7 +45,7 @@
                 </div>
                 <!-- /.col -->
             </div>
-            <div class="social-auth-links text-center hidden">
+            <div class="social-auth-links text-center ">
                 <p>- OR -</p>
                 <a href="#" class="btn btn-block btn-social btn-facebook btn-flat">
                     <i class="fa fa-facebook"></i> Sign in using
@@ -57,8 +57,8 @@
                 </a>
             </div>
             <!-- /.social-auth-links -->
-            <a asp-action="ForgotPassword" class="hidden">I forgot my password</a><br>
-            <a asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]" class="text-center hidden">Register a new membership</a>
+            <a asp-action="ForgotPassword" style="font:caption; color: red" >I forgot my password</a><br>
+            <button asp-action="Register" asp-route-returnurl="@ViewData["ReturnUrl"]" class="text-center " style="font: caption; color: red">Register a new membership</button>
             <p class="pull-right">
                 <span style="font-style:italic;"><small>*DemoSalah => Email: super@admin.com Password: 123456</small></span>
             </p>

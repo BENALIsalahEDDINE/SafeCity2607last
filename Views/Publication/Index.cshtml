@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewData["Title"] = "Publication";
+    ViewData["Title"] = "Gestion des Publications";
 }
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -60,11 +60,17 @@
                         updateUrl: "/api/Publication/Update",
                         removeUrl: "/api/Publication/Remove",
                     }),
+                   
+
                     toolbarSettings: {
                         showToolbar: true,
-                        toolbarItems: ["add", "edit", "delete", "update", "cancel", "search", "printGrid"]
+                        toolbarItems: ["add", "delete", "update", "cancel", "search", "printGrid"]
                     },
                     editSettings: {
+                        allowPaging: true,
+                        allowReordering: true,
+                        Resizable: true,
+                        allowTextWrap: true,
                         allowEditing: true,
                         allowAdding: true,
                         allowDeleting: true,
@@ -73,6 +79,10 @@
                     },
                     isResponsive: true,
                     enableResponsiveRow: true,
+                    Resizable: true,
+                    allowPaging: true,
+                    allowReordering: true,
+                    allowTextWrap: true,
                     allowSorting: true,
                     allowSearching: true,
                     allowFiltering: true,
@@ -84,24 +94,35 @@
                     allowPaging: true,
                     pageSettings: { pageSize: 10, printMode: ej.Grid.PrintMode.CurrentPage },
                     columns: [
-                        { field: "id_pub", headerText: 'Id Publication', isPrimaryKey: true, isIdentity: true, visible: false },
-                        { field: "id_source", headerText: 'Id Source', validationRules: { required: true } },
-                        { field: "id_cq", headerText: 'Id CQ', },
-                        { field: "id_comment", headerText: 'Id Comment', },
-                        { field: "publication", headerText: 'publication', },
+                        { field: "id_pub", headerText: 'id_pub', isPrimaryKey: true, isIdentity: true },
+                        { field: "id_source", headerText: 'id_source', validationRules: { required: true } },
+                        { field: "id_cq", headerText: 'id_cq', },
+                        { field: "id_comment", headerText: 'id_comment',Resizable : true, },
+                        { field: "publication", headerText: 'publication', width: 550 },
                    
                         { field: "pho1", headerText: 'Photo 1', },
                         { field: "pho2", headerText: 'Photo 2', },
                         { field: "pho3", headerText: 'Photo 3', },
                         { field: "ville", headerText: 'ville', },
-                        { field: "etat", headerText: 'etat', },
-                        { field: "explication", headerText: 'explication', },
+                        {  
+                            headerText: "Etat (En attente)",
+                            commands: [
+                                { type: "edit", buttonOptions: { text: "Edit", width: "120" } },
+                                { type: "delete", buttonOptions: { text: "Refuse", width: "120"} },
+                                { type: "details", buttonOptions: { text: "Valide", width: "120", click: "onClick" } },
+                             
+                                
+                            ],
+                            textAlign: ej.TextAlign.Center,
+                            width: 150
+                        } ,
+                        { field: "explication", headerText: 'Explication', },
                         { field: "date", headerText: 'Date', editType: "datepicker", format: "{0:MM/dd/yyyy}", validationRules: { required: true } },
-                        { field: "heure", headerText: 'Heure', editType: "timepicker", validationRules: { required: true } },
+                        { field: "heure", headerText: 'Heure', editType: "datetimepicker", format: "{0:HH:mm:ss}", validationRules: { required: true } },
                         { field: "secteur", headerText: 'secteur', },
                         { field: "rue", headerText: 'rue', },
                         { field: "lati", headerText: 'lati', },
-                        { field: "longi", headerText: 'longi', },
+                        { field: "longi", headerText: 'longi', width: 100, },
 
 
                     ],
@@ -120,5 +141,6 @@
 
 
     </script>
+
 }
 

@@ -49,27 +49,23 @@ namespace SafeCity2607last.Services
                
              
 
-                await _context.Proposition.AddAsync(new Proposition { CashBankName = "Default" });
+                await _context.Proposition.AddAsync(new Proposition { Propositionn = "Default" });
                 await _context.SaveChangesAsync();
 
                
 
 
-                await _context.Publication.AddAsync(new Publication { id_source = "Default" });
+                await _context.Publication.AddAsync(new Publication { publication = "Default" });
                 await _context.SaveChangesAsync();
 
-           
-
-                await _context.MessagePublic.AddAsync(new MessagePublic { ShipmentTypeName = "Default" });
+                await _context.CommentairesdePublic.AddAsync(new CommentairesdePublic { NomCommentaire = "Default" });
                 await _context.SaveChangesAsync();
 
-            
 
-                await _context.CommentairesdePublic.AddAsync(new CommentairesdePublic { ProductTypeName = "Default" });
-                await _context.SaveChangesAsync();
 
-              
-         
+
+
+
 
                 List<Admin> customers = new List<Admin>() {
                     new Admin{CustomerName = "Hanari Carnes", Address = "Rua do Paço, 67"},

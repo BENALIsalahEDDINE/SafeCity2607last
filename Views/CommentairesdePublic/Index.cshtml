@@ -1,6 +1,6 @@
 ﻿
 @{
-    ViewData["Title"] = "Commentaires de Public";
+    ViewData["Title"] = "Commentaires";
 }
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -65,6 +65,10 @@
                         toolbarItems: ["add", "edit", "delete", "update", "cancel", "search", "printGrid"]
                     },
                     editSettings: {
+                        Resizable: true,
+                        allowPaging: true,
+                        allowReordering: true,
+                        allowTextWrap: true,
                         allowEditing: true,
                         allowAdding: true,
                         allowDeleting: true,
@@ -72,6 +76,10 @@
                         editMode: "dialog"
                     },
                     isResponsive: true,
+                    Resizable: true,
+                    allowPaging: true,
+                    allowReordering: true,
+                    allowTextWrap: true,
                     enableResponsiveRow: true,
                     allowSorting: true,
                     allowSearching: true,
@@ -84,9 +92,9 @@
                     allowPaging: true,
                     pageSettings: { pageSize: 10, printMode: ej.Grid.PrintMode.CurrentPage },
                     columns: [
-                        { field: "ProductTypeId", headerText: 'Commentaire Type Id', isPrimaryKey: true, isIdentity: true, visible: false },
-                        { field: "ProductTypeName", headerText: 'Nom de Commentaire Public', validationRules: { required: true } },
-                        { field: "Description", headerText: 'Description du commentaire', },
+                        { field: "CommentaireId", headerText: 'Id Commentaire', isPrimaryKey: true, isIdentity: true, width: 120},
+                        { field: "NomCommentaire", headerText: 'Nom Commentaire', validationRules: { required: true }, width: 120 },
+                        { field: "Description", headerText: 'Description commentaire', width: 900},
                     ],
                     actionComplete: "complete",
                 });
