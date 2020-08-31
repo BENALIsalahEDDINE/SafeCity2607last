@@ -26,7 +26,7 @@ namespace SafeCity2607last.Controllers.Api
 
     
         [HttpGet]
-        public async Task<IActionResult> GetPaymentType()
+        public async Task<IActionResult> GetPublications()
         {
             List<Publications> Items = await _context.Publications.ToListAsync();
             int Count = Items.Count();
@@ -35,32 +35,32 @@ namespace SafeCity2607last.Controllers.Api
 
 
         [HttpPost("[action]")]
-        public IActionResult Insert([FromBody]CrudViewModel<Publications> payload)
+        public IActionResult Insert([FromBody]CrudViewModel<Publications> publications)
         {
-            Publications paymentType = payload.value;
-            _context.Publications.Add(paymentType);
+            Publications pub = publications.value;
+            _context.Publications.Add(pub);
             _context.SaveChanges();
-            return Ok(paymentType);
+            return Ok(pub);
         }
 
         [HttpPost("[action]")]
-        public IActionResult Update([FromBody]CrudViewModel<Publications> payload)
+        public IActionResult Update([FromBody]CrudViewModel<Publications> publications)
         {
-            Publications paymentType = payload.value;
-            _context.Publications.Update(paymentType);
+            Publications pub = publications.value;
+            _context.Publications.Update(pub);
             _context.SaveChanges();
-            return Ok(paymentType);
+            return Ok(pub);
         }
 
         [HttpPost("[action]")]
-        public IActionResult Remove([FromBody]CrudViewModel<Publications> payload)
+        public IActionResult Remove([FromBody]CrudViewModel<Publications> publications)
         {
-            Publications paymentType = _context.Publications
-                .Where(x => x.id_pub == (int)payload.key)
+            Publications pub = _context.Publications
+                .Where(x => x.id_pub == (int)publications.key)
                 .FirstOrDefault();
-            _context.Publications.Remove(paymentType);
+            _context.Publications.Remove(pub);
             _context.SaveChanges();
-            return Ok(paymentType);
+            return Ok(pub);
 
         }
     }

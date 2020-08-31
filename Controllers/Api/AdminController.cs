@@ -28,7 +28,7 @@ namespace SafeCity2607last.Controllers.Api
 
         // GET: api/Customer
         [HttpGet]
-        public async Task<IActionResult> GetCustomer()
+        public async Task<IActionResult> GetAdmin()
         {
             List<UserProfile> Items = await _context.UserProfile.ToListAsync();
             int Count = Items.Count();
@@ -40,35 +40,35 @@ namespace SafeCity2607last.Controllers.Api
 
 
         [HttpPost("[action]")]
-        public IActionResult Insert([FromBody]CrudViewModel<UserProfile> payload)
+        public IActionResult Insert([FromBody]CrudViewModel<UserProfile> admin)
         {
-            UserProfile customer = payload.value;
-            _context.UserProfile.Add(customer);
+            UserProfile adm = admin.value;
+            _context.UserProfile.Add(adm);
             _context.SaveChanges();
-            return Ok(customer);
+            return Ok(adm);
         }
 
 
 
 
         [HttpPost("[action]")]
-        public IActionResult Update([FromBody]CrudViewModel<UserProfile> payload)
+        public IActionResult Update([FromBody]CrudViewModel<UserProfile> admin)
         {
-            UserProfile customer = payload.value;
-            _context.UserProfile.Update(customer);
+            UserProfile adm = admin.value;
+            _context.UserProfile.Update(adm);
             _context.SaveChanges();
-            return Ok(customer);
+            return Ok(adm);
         }
 
         [HttpPost("[action]")]
-        public IActionResult Remove([FromBody]CrudViewModel<UserProfile> payload)
+        public IActionResult Remove([FromBody]CrudViewModel<UserProfile> admin)
         {
-            UserProfile customer = _context.UserProfile
-                .Where(x => x.UserProfileId == (int)payload.key)
+            UserProfile adm = _context.UserProfile
+                .Where(x => x.UserProfileId == (int)admin.key)
                 .FirstOrDefault();
-            _context.UserProfile.Remove(customer);
+            _context.UserProfile.Remove(adm);
             _context.SaveChanges();
-            return Ok(customer);
+            return Ok(adm);
 
         }
     }

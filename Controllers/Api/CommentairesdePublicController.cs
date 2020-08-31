@@ -26,7 +26,7 @@ namespace SafeCity2607last.Controllers.Api
 
         // GET: api/ProductType
         [HttpGet]
-        public async Task<IActionResult> GetProductType()
+        public async Task<IActionResult> GetCommentPub()
         {
             List<CommentairesdePublic> Items = await _context.CommentairesdePublic.ToListAsync();
             int Count = Items.Count();
@@ -36,32 +36,32 @@ namespace SafeCity2607last.Controllers.Api
 
 
         [HttpPost("[action]")]
-        public IActionResult Insert([FromBody] CrudViewModel<CommentairesdePublic> payload)
+        public IActionResult Insert([FromBody] CrudViewModel<CommentairesdePublic> commentpub)
         {
-            CommentairesdePublic productType = payload.value;
-            _context.CommentairesdePublic.Add(productType);
+            CommentairesdePublic commpub = commentpub.value;
+            _context.CommentairesdePublic.Add(commpub);
             _context.SaveChanges();
-            return Ok(productType);
+            return Ok(commpub);
         }
 
         [HttpPost("[action]")]
-        public IActionResult Update([FromBody] CrudViewModel<CommentairesdePublic> payload)
+        public IActionResult Update([FromBody] CrudViewModel<CommentairesdePublic> commentpub)
         {
-            CommentairesdePublic productType = payload.value;
-            _context.CommentairesdePublic.Update(productType);
+            CommentairesdePublic commpub = commentpub.value;
+            _context.CommentairesdePublic.Update(commpub);
             _context.SaveChanges();
-            return Ok(productType);
+            return Ok(commpub);
         }
 
         [HttpPost("[action]")]
-        public IActionResult Remove([FromBody] CrudViewModel<CommentairesdePublic> payload)
+        public IActionResult Remove([FromBody] CrudViewModel<CommentairesdePublic> commentpub)
         {
-            CommentairesdePublic productType = _context.CommentairesdePublic
-                .Where(x => x.CommentaireId == (int)payload.key)
+            CommentairesdePublic commpub = _context.CommentairesdePublic
+                .Where(x => x.CommentaireId == (int)commentpub.key)
                 .FirstOrDefault();
-            _context.CommentairesdePublic.Remove(productType);
+            _context.CommentairesdePublic.Remove(commpub);
             _context.SaveChanges();
-            return Ok(productType);
+            return Ok(commpub);
 
         }
     }

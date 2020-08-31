@@ -26,7 +26,7 @@ namespace SafeCity2607last.Controllers.Api
 
     
         [HttpGet]
-        public async Task<IActionResult> GetPaymentType()
+        public async Task<IActionResult> GetPublication()
         {
             List<Publication> Items = await _context.Publication.ToListAsync();
             int Count = Items.Count();
@@ -35,32 +35,32 @@ namespace SafeCity2607last.Controllers.Api
 
 
         [HttpPost("[action]")]
-        public IActionResult Insert([FromBody]CrudViewModel<Publication> payload)
+        public IActionResult Insert([FromBody]CrudViewModel<Publication> publication)
         {
-            Publication paymentType = payload.value;
-            _context.Publication.Add(paymentType);
+            Publication pub = publication.value;
+            _context.Publication.Add(pub);
             _context.SaveChanges();
-            return Ok(paymentType);
+            return Ok(pub);
         }
 
         [HttpPost("[action]")]
-        public IActionResult Update([FromBody]CrudViewModel<Publication> payload)
+        public IActionResult Update([FromBody]CrudViewModel<Publication> publication)
         {
-            Publication paymentType = payload.value;
-            _context.Publication.Update(paymentType);
+            Publication pub = publication.value;
+            _context.Publication.Update(pub);
             _context.SaveChanges();
-            return Ok(paymentType);
+            return Ok(pub);
         }
 
         [HttpPost("[action]")]
-        public IActionResult Remove([FromBody]CrudViewModel<Publication> payload)
+        public IActionResult Remove([FromBody]CrudViewModel<Publication> publication)
         {
-            Publication paymentType = _context.Publication
-                .Where(x => x.id_pub == (int)payload.key)
+            Publication pub = _context.Publication
+                .Where(x => x.id_pub == (int)publication.key)
                 .FirstOrDefault();
-            _context.Publication.Remove(paymentType);
+            _context.Publication.Remove(pub);
             _context.SaveChanges();
-            return Ok(paymentType);
+            return Ok(pub);
 
         }
     }

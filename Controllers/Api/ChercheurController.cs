@@ -25,7 +25,7 @@ namespace SafeCity2607last.Controllers.Api
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetVendor()
+        public async Task<IActionResult> GetChercheur()
         {
             List<UserProfile> Items = await _context.UserProfile.ToListAsync();
             int Count = Items.Count();
@@ -33,32 +33,32 @@ namespace SafeCity2607last.Controllers.Api
         }
 
         [HttpPost("[action]")]
-        public IActionResult Insert([FromBody] CrudViewModel<UserProfile> payload)
+        public IActionResult Insert([FromBody] CrudViewModel<UserProfile> chercheur)
         {
-            UserProfile vendor = payload.value;
-            _context.UserProfile.Add(vendor);
+            UserProfile cher = chercheur.value;
+            _context.UserProfile.Add(cher);
             _context.SaveChanges();
-            return Ok(vendor);
+            return Ok(cher);
         }
 
         [HttpPost("[action]")]
-        public IActionResult Update([FromBody] CrudViewModel<UserProfile> payload)
+        public IActionResult Update([FromBody] CrudViewModel<UserProfile> chercheur)
         {
-            UserProfile vendor = payload.value;
-            _context.UserProfile.Update(vendor);
+            UserProfile cher = chercheur.value;
+            _context.UserProfile.Update(cher);
             _context.SaveChanges();
-            return Ok(vendor);
+            return Ok(cher);
         }
 
         [HttpPost("[action]")]
-        public IActionResult Remove([FromBody] CrudViewModel<UserProfile> payload)
+        public IActionResult Remove([FromBody] CrudViewModel<UserProfile> chercheur)
         {
-            UserProfile vendor = _context.UserProfile
-                .Where(x => x.UserProfileId == (int)payload.key)
+            UserProfile cher = _context.UserProfile
+                .Where(x => x.UserProfileId == (int)chercheur.key)
                 .FirstOrDefault();
-            _context.UserProfile.Remove(vendor);
+            _context.UserProfile.Remove(cher);
             _context.SaveChanges();
-            return Ok(vendor);
+            return Ok(cher);
 
         }
     }

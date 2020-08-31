@@ -26,7 +26,7 @@ namespace SafeCity2607last.Controllers.Api
 
         // GET: api/ShipmentType
         [HttpGet]
-        public async Task<IActionResult> GetShipmentType()
+        public async Task<IActionResult> GetMessageRecue()
         {
             List<MessageRecu> Items = await _context.MessageRecu.ToListAsync();
             int Count = Items.Count();
@@ -35,32 +35,32 @@ namespace SafeCity2607last.Controllers.Api
 
 
         [HttpPost("[action]")]
-        public IActionResult Insert([FromBody]CrudViewModel<MessageRecu> payload)
+        public IActionResult Insert([FromBody]CrudViewModel<MessageRecu> message)
         {
-            MessageRecu shipmentType = payload.value;
-            _context.MessageRecu.Add(shipmentType);
+            MessageRecu mess = message.value;
+            _context.MessageRecu.Add(mess);
             _context.SaveChanges();
-            return Ok(shipmentType);
+            return Ok(mess);
         }
 
         [HttpPost("[action]")]
-        public IActionResult Update([FromBody]CrudViewModel<MessageRecu> payload)
+        public IActionResult Update([FromBody]CrudViewModel<MessageRecu> message)
         {
-            MessageRecu shipmentType = payload.value;
-            _context.MessageRecu.Update(shipmentType);
+            MessageRecu mess = message.value;
+            _context.MessageRecu.Update(mess);
             _context.SaveChanges();
-            return Ok(shipmentType);
+            return Ok(mess);
         }
 
         [HttpPost("[action]")]
-        public IActionResult Remove([FromBody]CrudViewModel<MessageRecu> payload)
+        public IActionResult Remove([FromBody]CrudViewModel<MessageRecu> message)
         {
-            MessageRecu shipmentType = _context.MessageRecu
-                .Where(x => x.Id_Mes == (int)payload.key)
+            MessageRecu mess = _context.MessageRecu
+                .Where(x => x.Id_Mes == (int)message.key)
                 .FirstOrDefault();
-            _context.MessageRecu.Remove(shipmentType);
+            _context.MessageRecu.Remove(mess);
             _context.SaveChanges();
-            return Ok(shipmentType);
+            return Ok(mess);
 
         }
     }

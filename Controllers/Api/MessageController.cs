@@ -26,7 +26,7 @@ namespace SafeCity2607last.Controllers.Api
 
         // GET: api/ShipmentType
         [HttpGet]
-        public async Task<IActionResult> GetShipmentType()
+        public async Task<IActionResult> GetMessage()
         {
             List<Message> Items = await _context.Message.ToListAsync();
             int Count = Items.Count();
@@ -35,32 +35,32 @@ namespace SafeCity2607last.Controllers.Api
 
 
         [HttpPost("[action]")]
-        public IActionResult Insert([FromBody]CrudViewModel<Message> payload)
+        public IActionResult Insert([FromBody]CrudViewModel<Message> message)
         {
-            Message shipmentType = payload.value;
-            _context.Message.Add(shipmentType);
+            Message mess = message.value;
+            _context.Message.Add(mess);
             _context.SaveChanges();
-            return Ok(shipmentType);
+            return Ok(mess);
         }
 
         [HttpPost("[action]")]
-        public IActionResult Update([FromBody]CrudViewModel<Message> payload)
+        public IActionResult Update([FromBody]CrudViewModel<Message> message)
         {
-            Message shipmentType = payload.value;
-            _context.Message.Update(shipmentType);
+            Message mess = message.value;
+            _context.Message.Update(mess);
             _context.SaveChanges();
-            return Ok(shipmentType);
+            return Ok(mess);
         }
 
         [HttpPost("[action]")]
-        public IActionResult Remove([FromBody]CrudViewModel<Message> payload)
+        public IActionResult Remove([FromBody]CrudViewModel<Message> message)
         {
-            Message shipmentType = _context.Message
-                .Where(x => x.Id_Mes == (int)payload.key)
+            Message mess = _context.Message
+                .Where(x => x.Id_Mes == (int)message.key)
                 .FirstOrDefault();
-            _context.Message.Remove(shipmentType);
+            _context.Message.Remove(mess);
             _context.SaveChanges();
-            return Ok(shipmentType);
+            return Ok(mess);
 
         }
     }

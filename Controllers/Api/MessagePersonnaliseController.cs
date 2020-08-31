@@ -26,7 +26,7 @@ namespace SafeCity2607last.Controllers.Api
 
         // GET: api/ShipmentType
         [HttpGet]
-        public async Task<IActionResult> GetShipmentType()
+        public async Task<IActionResult> GetMessagePersonnalise()
         {
             List<MessagePersonnalise> Items = await _context.MessagePersonnalise.ToListAsync();
             int Count = Items.Count();
@@ -35,32 +35,32 @@ namespace SafeCity2607last.Controllers.Api
 
 
         [HttpPost("[action]")]
-        public IActionResult Insert([FromBody]CrudViewModel<MessagePersonnalise> payload)
+        public IActionResult Insert([FromBody]CrudViewModel<MessagePersonnalise> message)
         {
-            MessagePersonnalise shipmentType = payload.value;
-            _context.MessagePersonnalise.Add(shipmentType);
+            MessagePersonnalise mess = message.value;
+            _context.MessagePersonnalise.Add(mess);
             _context.SaveChanges();
-            return Ok(shipmentType);
+            return Ok(mess);
         }
 
         [HttpPost("[action]")]
-        public IActionResult Update([FromBody]CrudViewModel<MessagePersonnalise> payload)
+        public IActionResult Update([FromBody]CrudViewModel<MessagePersonnalise> message)
         {
-            MessagePersonnalise shipmentType = payload.value;
+            MessagePersonnalise shipmentType = message.value;
             _context.MessagePersonnalise.Update(shipmentType);
             _context.SaveChanges();
             return Ok(shipmentType);
         }
 
         [HttpPost("[action]")]
-        public IActionResult Remove([FromBody]CrudViewModel<MessagePersonnalise> payload)
+        public IActionResult Remove([FromBody]CrudViewModel<MessagePersonnalise> message)
         {
-            MessagePersonnalise shipmentType = _context.MessagePersonnalise
-                .Where(x => x.Id_Mes == (int)payload.key)
+            MessagePersonnalise mess = _context.MessagePersonnalise
+                .Where(x => x.Id_Mes == (int)message.key)
                 .FirstOrDefault();
-            _context.MessagePersonnalise.Remove(shipmentType);
+            _context.MessagePersonnalise.Remove(mess);
             _context.SaveChanges();
-            return Ok(shipmentType);
+            return Ok(mess);
 
         }
     }

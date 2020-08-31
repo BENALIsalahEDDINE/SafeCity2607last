@@ -26,7 +26,7 @@ namespace SafeCity2607last.Controllers.Api
 
         // GET: api/Vendor
         [HttpGet]
-        public async Task<IActionResult> GetVendor()
+        public async Task<IActionResult> GetCQ()
         {
             List<UserProfile> Items = await _context.UserProfile.ToListAsync();
             int Count = Items.Count();
@@ -34,32 +34,32 @@ namespace SafeCity2607last.Controllers.Api
         }
 
         [HttpPost("[action]")]
-        public IActionResult Insert([FromBody]CrudViewModel<ControleurdeQualité> payload)
+        public IActionResult Insert([FromBody]CrudViewModel<ControleurdeQualité> cq)
         {
-            ControleurdeQualité vendor = payload.value;
-            _context.ControleurdeQualité.Add(vendor);
+            ControleurdeQualité commess = cq.value;
+            _context.ControleurdeQualité.Add(commess);
             _context.SaveChanges();
-            return Ok(vendor);
+            return Ok(commess);
         }
 
         [HttpPost("[action]")]
-        public IActionResult Update([FromBody]CrudViewModel<UserProfile> payload)
+        public IActionResult Update([FromBody]CrudViewModel<UserProfile> cq)
         {
-            UserProfile vendor = payload.value;
-            _context.UserProfile.Update(vendor);
+            UserProfile commess = cq.value;
+            _context.UserProfile.Update(commess);
             _context.SaveChanges();
-            return Ok(vendor);
+            return Ok(commess);
         }
 
         [HttpPost("[action]")]
-        public IActionResult Remove([FromBody]CrudViewModel<UserProfile> payload)
+        public IActionResult Remove([FromBody]CrudViewModel<UserProfile> cq)
         {
-            UserProfile vendor = _context.UserProfile
-                .Where(x => x.UserProfileId == (int)payload.key)
+            UserProfile commess = _context.UserProfile
+                .Where(x => x.UserProfileId == (int)cq.key)
                 .FirstOrDefault();
-            _context.UserProfile.Remove(vendor);
+            _context.UserProfile.Remove(commess);
             _context.SaveChanges();
-            return Ok(vendor);
+            return Ok(commess);
 
         }
     }

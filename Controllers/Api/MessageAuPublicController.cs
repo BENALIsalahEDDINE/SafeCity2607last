@@ -26,7 +26,7 @@ namespace SafeCity2607last.Controllers.Api
 
         // GET: api/ShipmentType
         [HttpGet]
-        public async Task<IActionResult> GetShipmentType()
+        public async Task<IActionResult> GetMessagePublic()
         {
             List<MessageAuPublic> Items = await _context.MessageAuPublic.ToListAsync();
             int Count = Items.Count();
@@ -35,32 +35,32 @@ namespace SafeCity2607last.Controllers.Api
 
 
         [HttpPost("[action]")]
-        public IActionResult Insert([FromBody]CrudViewModel<MessageAuPublic> payload)
+        public IActionResult Insert([FromBody]CrudViewModel<MessageAuPublic> message)
         {
-            MessageAuPublic shipmentType = payload.value;
-            _context.MessageAuPublic.Add(shipmentType);
+            MessageAuPublic mess = message.value;
+            _context.MessageAuPublic.Add(mess);
             _context.SaveChanges();
-            return Ok(shipmentType);
+            return Ok(mess);
         }
 
         [HttpPost("[action]")]
-        public IActionResult Update([FromBody]CrudViewModel<MessageAuPublic> payload)
+        public IActionResult Update([FromBody]CrudViewModel<MessageAuPublic> message)
         {
-            MessageAuPublic shipmentType = payload.value;
-            _context.MessageAuPublic.Update(shipmentType);
+            MessageAuPublic mess = message.value;
+            _context.MessageAuPublic.Update(mess);
             _context.SaveChanges();
-            return Ok(shipmentType);
+            return Ok(mess);
         }
 
         [HttpPost("[action]")]
-        public IActionResult Remove([FromBody]CrudViewModel<MessageAuPublic> payload)
+        public IActionResult Remove([FromBody]CrudViewModel<MessageAuPublic> message)
         {
-            MessageAuPublic shipmentType = _context.MessageAuPublic
-                .Where(x => x.Id_Mes == (int)payload.key)
+            MessageAuPublic mess = _context.MessageAuPublic
+                .Where(x => x.Id_Mes == (int)message.key)
                 .FirstOrDefault();
-            _context.MessageAuPublic.Remove(shipmentType);
+            _context.MessageAuPublic.Remove(mess);
             _context.SaveChanges();
-            return Ok(shipmentType);
+            return Ok(mess);
 
         }
     }

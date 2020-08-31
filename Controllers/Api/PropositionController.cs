@@ -26,7 +26,7 @@ namespace SafeCity2607last.Controllers.Api
 
         // GET: api/CashBank
         [HttpGet]
-        public async Task<IActionResult> GetCashBank()
+        public async Task<IActionResult> GetProposition()
         {
             List<Proposition> Items = await _context.Proposition.ToListAsync();
             int Count = Items.Count();
@@ -34,32 +34,32 @@ namespace SafeCity2607last.Controllers.Api
         }
 
         [HttpPost("[action]")]
-        public IActionResult Insert([FromBody]CrudViewModel<Proposition> payload)
+        public IActionResult Insert([FromBody]CrudViewModel<Proposition> proposition)
         {
-            Proposition cashBank = payload.value;
-            _context.Proposition.Add(cashBank);
+            Proposition propo = proposition.value;
+            _context.Proposition.Add(propo);
             _context.SaveChanges();
-            return Ok(cashBank);
+            return Ok(propo);
         }
 
         [HttpPost("[action]")]
-        public IActionResult Update([FromBody]CrudViewModel<Proposition> payload)
+        public IActionResult Update([FromBody]CrudViewModel<Proposition> proposition)
         {
-            Proposition cashBank = payload.value;
-            _context.Proposition.Update(cashBank);
+            Proposition propo = proposition.value;
+            _context.Proposition.Update(propo);
             _context.SaveChanges();
-            return Ok(cashBank);
+            return Ok(propo);
         }
 
         [HttpPost("[action]")]
-        public IActionResult Remove([FromBody]CrudViewModel<Proposition> payload)
+        public IActionResult Remove([FromBody]CrudViewModel<Proposition> proposition)
         {
-            Proposition cashBank = _context.Proposition
-                .Where(x => x.Id_Prop == (int)payload.key)
+            Proposition propo = _context.Proposition
+                .Where(x => x.Id_Prop == (int)proposition.key)
                 .FirstOrDefault();
-            _context.Proposition.Remove(cashBank);
+            _context.Proposition.Remove(propo);
             _context.SaveChanges();
-            return Ok(cashBank);
+            return Ok(propo);
 
         }
     }
