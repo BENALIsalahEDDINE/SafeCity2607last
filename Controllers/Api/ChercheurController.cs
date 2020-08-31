@@ -27,36 +27,36 @@ namespace SafeCity2607last.Controllers.Api
         [HttpGet]
         public async Task<IActionResult> GetVendor()
         {
-            List<Chercheur> Items = await _context.Chercheur.ToListAsync();
+            List<UserProfile> Items = await _context.UserProfile.ToListAsync();
             int Count = Items.Count();
             return Ok(new { Items, Count });
         }
 
         [HttpPost("[action]")]
-        public IActionResult Insert([FromBody] CrudViewModel<Chercheur> payload)
+        public IActionResult Insert([FromBody] CrudViewModel<UserProfile> payload)
         {
-            Chercheur vendor = payload.value;
-            _context.Chercheur.Add(vendor);
+            UserProfile vendor = payload.value;
+            _context.UserProfile.Add(vendor);
             _context.SaveChanges();
             return Ok(vendor);
         }
 
         [HttpPost("[action]")]
-        public IActionResult Update([FromBody] CrudViewModel<Chercheur> payload)
+        public IActionResult Update([FromBody] CrudViewModel<UserProfile> payload)
         {
-            Chercheur vendor = payload.value;
-            _context.Chercheur.Update(vendor);
+            UserProfile vendor = payload.value;
+            _context.UserProfile.Update(vendor);
             _context.SaveChanges();
             return Ok(vendor);
         }
 
         [HttpPost("[action]")]
-        public IActionResult Remove([FromBody] CrudViewModel<Chercheur> payload)
+        public IActionResult Remove([FromBody] CrudViewModel<UserProfile> payload)
         {
-            Chercheur vendor = _context.Chercheur
-                .Where(x => x.id_pub == (int)payload.key)
+            UserProfile vendor = _context.UserProfile
+                .Where(x => x.UserProfileId == (int)payload.key)
                 .FirstOrDefault();
-            _context.Chercheur.Remove(vendor);
+            _context.UserProfile.Remove(vendor);
             _context.SaveChanges();
             return Ok(vendor);
 

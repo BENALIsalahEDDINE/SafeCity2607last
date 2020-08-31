@@ -28,7 +28,7 @@ namespace SafeCity2607last.Controllers.Api
         [HttpGet]
         public async Task<IActionResult> GetVendor()
         {
-            List<ControleurdeQualité> Items = await _context.ControleurdeQualité.ToListAsync();
+            List<UserProfile> Items = await _context.UserProfile.ToListAsync();
             int Count = Items.Count();
             return Ok(new { Items, Count });
         }
@@ -43,21 +43,21 @@ namespace SafeCity2607last.Controllers.Api
         }
 
         [HttpPost("[action]")]
-        public IActionResult Update([FromBody]CrudViewModel<ControleurdeQualité> payload)
+        public IActionResult Update([FromBody]CrudViewModel<UserProfile> payload)
         {
-            ControleurdeQualité vendor = payload.value;
-            _context.ControleurdeQualité.Update(vendor);
+            UserProfile vendor = payload.value;
+            _context.UserProfile.Update(vendor);
             _context.SaveChanges();
             return Ok(vendor);
         }
 
         [HttpPost("[action]")]
-        public IActionResult Remove([FromBody]CrudViewModel<ControleurdeQualité> payload)
+        public IActionResult Remove([FromBody]CrudViewModel<UserProfile> payload)
         {
-            ControleurdeQualité vendor = _context.ControleurdeQualité
-                .Where(x => x.VendorId == (int)payload.key)
+            UserProfile vendor = _context.UserProfile
+                .Where(x => x.UserProfileId == (int)payload.key)
                 .FirstOrDefault();
-            _context.ControleurdeQualité.Remove(vendor);
+            _context.UserProfile.Remove(vendor);
             _context.SaveChanges();
             return Ok(vendor);
 
