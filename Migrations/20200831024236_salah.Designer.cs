@@ -11,8 +11,8 @@ using System;
 namespace SafeCity2607last.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200830235426_saah1")]
-    partial class saah1
+    [Migration("20200831024236_salah")]
+    partial class salah
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

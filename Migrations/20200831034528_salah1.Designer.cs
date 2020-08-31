@@ -11,8 +11,8 @@ using System;
 namespace SafeCity2607last.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200827180724_slh")]
-    partial class slh
+    [Migration("20200831034528_salah1")]
+    partial class salah1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -252,19 +252,19 @@ namespace SafeCity2607last.Migrations
                     b.ToTable("Chercheur");
                 });
 
-            modelBuilder.Entity("SafeCity2607last.Models.Commentaires", b =>
+            modelBuilder.Entity("SafeCity2607last.Models.CommentairesdePublic", b =>
                 {
-                    b.Property<int>("ProductTypeId")
+                    b.Property<int>("CommentaireId")
                         .ValueGeneratedOnAdd();
 
                     b.Property<string>("Description");
 
-                    b.Property<string>("ProductTypeName")
+                    b.Property<string>("NomCommentaire")
                         .IsRequired();
 
-                    b.HasKey("ProductTypeId");
+                    b.HasKey("CommentaireId");
 
-                    b.ToTable("Commentaires");
+                    b.ToTable("CommentairesdePublic");
                 });
 
             modelBuilder.Entity("SafeCity2607last.Models.ControleurdeQualité", b =>
@@ -298,17 +298,90 @@ namespace SafeCity2607last.Migrations
 
             modelBuilder.Entity("SafeCity2607last.Models.Message", b =>
                 {
-                    b.Property<int>("ShipmentTypeId")
+                    b.Property<int>("Id_Mes")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Description");
+                    b.Property<DateTimeOffset>("Date");
 
-                    b.Property<string>("ShipmentTypeName")
-                        .IsRequired();
+                    b.Property<DateTime>("Heure");
 
-                    b.HasKey("ShipmentTypeId");
+                    b.Property<int>("Id_Com");
+
+                    b.Property<int>("Id_Source");
+
+                    b.Property<string>("Messagee");
+
+                    b.Property<string>("Ville");
+
+                    b.HasKey("Id_Mes");
 
                     b.ToTable("Message");
+                });
+
+            modelBuilder.Entity("SafeCity2607last.Models.MessageAuPublic", b =>
+                {
+                    b.Property<int>("Id_Mes")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTimeOffset>("Date");
+
+                    b.Property<DateTime>("Heure");
+
+                    b.Property<int>("Id_Com");
+
+                    b.Property<int>("Id_Source");
+
+                    b.Property<string>("Message");
+
+                    b.Property<string>("Ville");
+
+                    b.HasKey("Id_Mes");
+
+                    b.ToTable("MessageAuPublic");
+                });
+
+            modelBuilder.Entity("SafeCity2607last.Models.MessagePersonnalise", b =>
+                {
+                    b.Property<int>("Id_Mes")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTimeOffset>("Date");
+
+                    b.Property<DateTime>("Heure");
+
+                    b.Property<int>("Id_Com");
+
+                    b.Property<int>("Id_Source");
+
+                    b.Property<string>("Message");
+
+                    b.Property<string>("Ville");
+
+                    b.HasKey("Id_Mes");
+
+                    b.ToTable("MessagePersonnalise");
+                });
+
+            modelBuilder.Entity("SafeCity2607last.Models.MessageRecu", b =>
+                {
+                    b.Property<int>("Id_Mes")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTimeOffset>("Date");
+
+                    b.Property<DateTime>("Heure");
+
+                    b.Property<int>("Id_Com");
+
+                    b.Property<int>("Id_Source");
+
+                    b.Property<string>("Messagee");
+
+                    b.Property<string>("Ville");
+
+                    b.HasKey("Id_Mes");
+
+                    b.ToTable("MessageRecu");
                 });
 
             modelBuilder.Entity("SafeCity2607last.Models.NumberSequence", b =>
@@ -334,14 +407,22 @@ namespace SafeCity2607last.Migrations
 
             modelBuilder.Entity("SafeCity2607last.Models.Proposition", b =>
                 {
-                    b.Property<int>("CashBankId")
+                    b.Property<int>("Id_Prop")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("CashBankName");
+                    b.Property<DateTimeOffset>("Date");
 
-                    b.Property<string>("Description");
+                    b.Property<DateTime>("Heure");
 
-                    b.HasKey("CashBankId");
+                    b.Property<int>("Id_Com");
+
+                    b.Property<int>("Id_Source");
+
+                    b.Property<string>("Propositionn");
+
+                    b.Property<string>("Ville");
+
+                    b.HasKey("Id_Prop");
 
                     b.ToTable("Proposition");
                 });
@@ -351,42 +432,81 @@ namespace SafeCity2607last.Migrations
                     b.Property<int>("id_pub")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int>("date");
+                    b.Property<DateTimeOffset>("date");
 
-                    b.Property<int>("etat");
+                    b.Property<string>("etat");
 
-                    b.Property<int>("explication");
+                    b.Property<string>("explication");
 
-                    b.Property<int>("heure");
+                    b.Property<DateTime>("heure");
 
                     b.Property<int>("id_comment");
 
                     b.Property<int>("id_cq");
 
-                    b.Property<string>("id_source")
-                        .IsRequired();
+                    b.Property<int>("id_source");
 
                     b.Property<int>("lati");
 
                     b.Property<int>("longi");
 
-                    b.Property<int>("pho1");
+                    b.Property<string>("pho1");
 
-                    b.Property<int>("pho2");
+                    b.Property<string>("pho2");
 
-                    b.Property<int>("pho3");
+                    b.Property<string>("pho3");
 
-                    b.Property<int>("publication");
+                    b.Property<string>("publication");
 
-                    b.Property<int>("rue");
+                    b.Property<string>("rue");
 
-                    b.Property<int>("secteur");
+                    b.Property<string>("secteur");
 
-                    b.Property<int>("ville");
+                    b.Property<string>("ville");
 
                     b.HasKey("id_pub");
 
                     b.ToTable("Publication");
+                });
+
+            modelBuilder.Entity("SafeCity2607last.Models.Publications", b =>
+                {
+                    b.Property<int>("id_pub")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTimeOffset>("date");
+
+                    b.Property<string>("explication");
+
+                    b.Property<DateTime>("heure");
+
+                    b.Property<int>("id_comment");
+
+                    b.Property<int>("id_cq");
+
+                    b.Property<int>("id_source");
+
+                    b.Property<int>("lati");
+
+                    b.Property<int>("longi");
+
+                    b.Property<string>("pho1");
+
+                    b.Property<string>("pho2");
+
+                    b.Property<string>("pho3");
+
+                    b.Property<string>("publication");
+
+                    b.Property<string>("rue");
+
+                    b.Property<string>("secteur");
+
+                    b.Property<string>("ville");
+
+                    b.HasKey("id_pub");
+
+                    b.ToTable("Publications");
                 });
 
             modelBuilder.Entity("SafeCity2607last.Models.UserProfile", b =>

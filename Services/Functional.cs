@@ -67,56 +67,10 @@ namespace SafeCity2607last.Services
 
 
 
-                List<Admin> customers = new List<Admin>() {
-                    new Admin{CustomerName = "Hanari Carnes", Address = "Rua do Paço, 67"},
-                    new Admin{CustomerName = "HILARION-Abastos", Address = "Carrera 22 con Ave. Carlos Soublette #8-35"},
-                    new Admin{CustomerName = "Hungry Coyote Import Store", Address = "City Center Plaza 516 Main St."},
-                    new Admin{CustomerName = "Hungry Owl All-Night Grocers", Address = "8 Johnstown Road"},
-                    new Admin{CustomerName = "Island Trading", Address = "Garden House Crowther Way"},
-                    new Admin{CustomerName = "Königlich Essen", Address = "Maubelstr. 90"},
-                    new Admin{CustomerName = "La corne d'abondance", Address = "67, avenue de l'Europe"},
-                    new Admin{CustomerName = "La maison d'Asie", Address = "1 rue Alsace-Lorraine"},
-                    new Admin{CustomerName = "Laughing Bacchus Wine Cellars", Address = "1900 Oak St."},
-                    new Admin{CustomerName = "Lazy K Kountry Store", Address = "12 Orchestra Terrace"},
-                    new Admin{CustomerName = "Lehmanns Marktstand", Address = "Magazinweg 7"},
-                    new Admin{CustomerName = "Let's Stop N Shop", Address = "87 Polk St. Suite 5"},
-                    new Admin{CustomerName = "LILA-Supermercado", Address = "Carrera 52 con Ave. Bolívar #65-98 Llano Largo"},
-                    new Admin{CustomerName = "LINO-Delicateses", Address = "Ave. 5 de Mayo Porlamar"},
-                    new Admin{CustomerName = "Lonesome Pine Restaurant", Address = "89 Chiaroscuro Rd."},
-                    new Admin{CustomerName = "Magazzini Alimentari Riuniti", Address = "Via Ludovico il Moro 22"},
-                    new Admin{CustomerName = "Maison Dewey", Address = "Rue Joseph-Bens 532"},
-                    new Admin{CustomerName = "Mère Paillarde", Address = "43 rue St. Laurent"},
-                    new Admin{CustomerName = "Morgenstern Gesundkost", Address = "Heerstr. 22"},
-                    new Admin{CustomerName = "Old World Delicatessen", Address = "2743 Bering St."}
-                };
-                await _context.Admin.AddRangeAsync(customers);
-                await _context.SaveChangesAsync();
+            
 
-              
 
-                List<ControleurdeQualité> vendors = new List<ControleurdeQualité>() {
-                    new ControleurdeQualité{VendorName = "Exotic Liquids", Address = "49 Gilbert St."},
-                    new ControleurdeQualité{VendorName = "New Orleans Cajun Delights", Address = "P.O. Box 78934"},
-                    new ControleurdeQualité{VendorName = "Grandma Kelly's Homestead", Address = "707 Oxford Rd."},
-                    new ControleurdeQualité{VendorName = "Tokyo Traders", Address = "9-8 Sekimai Musashino-shi"},
-                    new ControleurdeQualité{VendorName = "Cooperativa de Quesos 'Las Cabras'", Address = "Calle del Rosal 4"},
-                    new ControleurdeQualité{VendorName = "Mayumi's", Address = "92 Setsuko Chuo-ku"},
-                    new ControleurdeQualité{VendorName = "Pavlova, Ltd.", Address = "74 Rose St. Moonie Ponds"},
-                    new ControleurdeQualité{VendorName = "Specialty Biscuits, Ltd.", Address = "29 King's Way"},
-                    new ControleurdeQualité{VendorName = "PB Knäckebröd AB", Address = "Kaloadagatan 13"},
-                    new ControleurdeQualité{VendorName = "Refrescos Americanas LTDA", Address = "Av. das Americanas 12.890"},
-                    new ControleurdeQualité{VendorName = "Heli Süßwaren GmbH & Co. KG", Address = "Tiergartenstraße 5"},
-                    new ControleurdeQualité{VendorName = "Plutzer Lebensmittelgroßmärkte AG", Address = "Bogenallee 51"},
-                    new ControleurdeQualité{VendorName = "Nord-Ost-Fisch Handelsgesellschaft mbH", Address = "Frahmredder 112a"},
-                    new ControleurdeQualité{VendorName = "Formaggi Fortini s.r.l.", Address = "Viale Dante, 75"},
-                    new ControleurdeQualité{VendorName = "Norske Meierier", Address = "Hatlevegen 5"},
-                    new ControleurdeQualité{VendorName = "Bigfoot Breweries", Address = "3400 - 8th Avenue Suite 210"},
-                    new ControleurdeQualité{VendorName = "Svensk Sjöföda AB", Address = "Brovallavägen 231"},
-                    new ControleurdeQualité{VendorName = "Aux joyeux ecclésiastiques", Address = "203, Rue des Francs-Bourgeois"},
-                    new ControleurdeQualité{VendorName = "New England Seafood Cannery", Address = "Order Processing Dept. 2100 Paul Revere Blvd."}
-                };
-                await _context.ControleurdeQualité.AddRangeAsync(vendors);
-                await _context.SaveChangesAsync();
+               
 
             }
             catch (Exception)
